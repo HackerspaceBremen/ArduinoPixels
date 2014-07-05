@@ -56,7 +56,7 @@ public:
     PixelRenderer * renderer;
     
     PixelMain();
-    void setup();
+    void setup(PixelRenderer* prenderer);
     
     
     void setGameState(int state);

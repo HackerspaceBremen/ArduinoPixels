@@ -72,10 +72,23 @@ void PixelMain::setGameState(int state)
   //  cout <<state<<endl ;
   gameState =state;
 }
-void PixelMain::setup()
+/*
+Method setup() was changed. A pointer to the renderer can now be passed.
+This was necessary to integrate invasion game into game menu. 
+*/
+void PixelMain::setup(PixelRenderer* prenderer)
 {
-    renderer =new PixelRenderer();
-    renderer->setup();
+	if(prenderer != NULL)
+	{
+		// set extern renderer from game engine
+		renderer = prenderer;
+	}
+	else
+	{
+		// "old" code
+		renderer = new PixelRenderer();
+		renderer->setup();
+	}
    
     stage1p.renderer =renderer;
     stage2p.renderer =renderer;

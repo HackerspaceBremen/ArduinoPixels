@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PixelShared", "..\..\libraries\PixelShared\vc11\PixelShared\PixelShared.vcxproj", "{3E595C04-344A-4E48-8C8D-BFEEC4EE085F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PixelGame", "..\..\libraries\PixelGame\vc11\PixelGame\PixelGame.vcxproj", "{03377924-BF35-4C3A-9CAA-E017B27AAD32}"
@@ -10,6 +10,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pixelGameApp", "..\..\cinde
 		{3E595C04-344A-4E48-8C8D-BFEEC4EE085F} = {3E595C04-344A-4E48-8C8D-BFEEC4EE085F}
 		{03377924-BF35-4C3A-9CAA-E017B27AAD32} = {03377924-BF35-4C3A-9CAA-E017B27AAD32}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VideoGame", "..\..\VideoGame\vc11\VideoGame.vcxproj", "{28D9DFF7-C75D-46DA-BE9F-E9D09B48B396}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VideoGameDebugOutput", "..\..\VideoGameDebugOutput\VideoGameDebugOutput.vcxproj", "{0C15FA75-A17C-4A30-AF73-5AB05A6A99E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VideoGamePngConverter", "..\..\VideoGamePngConverter\vc11\VideoGamePngConverter.vcxproj", "{3BFDE156-A7D5-40C7-A5E9-ED2AA5059DA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +35,18 @@ Global
 		{855D34F3-9FD0-455F-80B3-CF01BC3A3C81}.Debug|Win32.Build.0 = Debug|Win32
 		{855D34F3-9FD0-455F-80B3-CF01BC3A3C81}.Release|Win32.ActiveCfg = Release|Win32
 		{855D34F3-9FD0-455F-80B3-CF01BC3A3C81}.Release|Win32.Build.0 = Release|Win32
+		{28D9DFF7-C75D-46DA-BE9F-E9D09B48B396}.Debug|Win32.ActiveCfg = Debug|Win32
+		{28D9DFF7-C75D-46DA-BE9F-E9D09B48B396}.Debug|Win32.Build.0 = Debug|Win32
+		{28D9DFF7-C75D-46DA-BE9F-E9D09B48B396}.Release|Win32.ActiveCfg = Release|Win32
+		{28D9DFF7-C75D-46DA-BE9F-E9D09B48B396}.Release|Win32.Build.0 = Release|Win32
+		{0C15FA75-A17C-4A30-AF73-5AB05A6A99E9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0C15FA75-A17C-4A30-AF73-5AB05A6A99E9}.Debug|Win32.Build.0 = Debug|Win32
+		{0C15FA75-A17C-4A30-AF73-5AB05A6A99E9}.Release|Win32.ActiveCfg = Release|Win32
+		{0C15FA75-A17C-4A30-AF73-5AB05A6A99E9}.Release|Win32.Build.0 = Release|Win32
+		{3BFDE156-A7D5-40C7-A5E9-ED2AA5059DA5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3BFDE156-A7D5-40C7-A5E9-ED2AA5059DA5}.Debug|Win32.Build.0 = Debug|Win32
+		{3BFDE156-A7D5-40C7-A5E9-ED2AA5059DA5}.Release|Win32.ActiveCfg = Release|Win32
+		{3BFDE156-A7D5-40C7-A5E9-ED2AA5059DA5}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

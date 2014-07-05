@@ -45,7 +45,7 @@ class pixelgameApp : public AppBasic {
 void pixelgameApp::setup()
 {
     setWindowSize(90*13+20, 16*13+20);
-    pixelMain.setup();
+    pixelMain.setup(NULL);
     previousTime =ci::app::getElapsedSeconds();
     gl::disableVerticalSync();
      lock =true;

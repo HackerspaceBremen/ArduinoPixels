@@ -56,63 +56,62 @@ public:
     }
     void setPixel(int x, int y, int  r,int  g, int  b,int a)
     {
-   
-        int pos = (x+(y*width))*3;
-        if(pos>size-3)return;
-        if (pos<0)return;
-        if(a==255)
+        int pos = (x + (y * width)) * 3;
+		if(pos > size - 3)
+		{
+				return;
+		}
+        if (pos < 0)
+		{
+			return;
+		}
+        if(a == 255)
         {
-            buffer[pos]=(float)r/255.f;
+            buffer[pos] = (float)r/255.f;
             pos++;
-            buffer[pos]=(float)g/255.f;
+            buffer[pos] = (float)g/255.f;
             pos++;
-            buffer[pos]=(float)b/255.f;
-        
+            buffer[pos] = (float)b/255.f;
         }
         else
         {
-        
             float alpha = (float)a/255;
-            float alpha1 =1-alpha;
+            float alpha1 = 1 - alpha;
             float rOld = buffer[pos];
-            buffer[pos] =rOld*alpha1 +(float)r/255*alpha;
+            buffer[pos] = rOld * alpha1 +(float)r/255*alpha;
             pos++;
-        
-            
+                    
             float gOld = buffer[pos];
             buffer[pos] =gOld*alpha1 +(float)g/255*alpha;
             pos++;
 
-            
-            
             float bOld = buffer[pos];
             buffer[pos] =bOld*alpha1 +(float)b/255*alpha;
-            
-
-        
         }
     
     };
     void draw()
-    {
-      
-        int size=13;
-        int pos=0;
+    {  
+        int size = 13;
+        int pos = 0;
         
-        for(int y=0;y<height;y++)
+        for(int y = 0; y < height; y++)
         {
-            for(int x=0;x<width;x++)
+            for(int x = 0; x < width; x++)
             {
-                float  r =buffer[pos++];
-              float  g =buffer[pos++];
-                 float  b =buffer[pos++];
-                 glColor3f(r,g,b);
-                    cinder::gl::drawSolidRect( cinder::Rectf(x*(size)+10,y*(size)+10,x*(size)+size+10,y*(size)+size+10));
+				float r = buffer[pos++];
+				float g = buffer[pos++];
+                float b = buffer[pos++];
+                glColor3f(r,g,b);
+                cinder::gl::drawSolidRect(cinder::Rectf(x * (size) + 10,
+														y * (size) + 10,
+														x * (size) + size +10,
+														y * (size) + size +10));
             }
         }    
-    
     };
-    float * buffer;
+
+    float* buffer;
     int height;
     int width;
     int size;
