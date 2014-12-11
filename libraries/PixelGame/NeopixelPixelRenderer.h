@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Kris Temmerman. All rights reserved.
 //
 
+#ifdef ARDUINO
+
 #ifndef PixelGame_NeopixelPixelRenderer_h
 #define PixelGame_NeopixelPixelRenderer_h
 #include "Adafruit_NeoMatrix.h"
@@ -35,4 +37,6 @@ public:
     void fade();
 };
 
-#endif
+#endif // PixelGame_NeopixelPixelRenderer_h
+
+#endif // ARDUINO

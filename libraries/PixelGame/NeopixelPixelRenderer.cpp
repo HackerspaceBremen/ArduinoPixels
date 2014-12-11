@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Kris Temmerman. All rights reserved.
 //
 
+#ifdef ARDUINO
+
 #include "NeopixelPixelRenderer.h"
 
 NeopixelPixelRenderer::NeopixelPixelRenderer()
@@ -47,3 +49,5 @@ void NeopixelPixelRenderer::setPixel(int x,int y,uint32_t c)
 {
     pixels->drawPixel(x, y, c);
 }
+
+#endif // ARDUINO

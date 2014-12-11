@@ -10,7 +10,7 @@ http://www.neuroproductions.be/arduino/arduino-video-game/
 Getting started
 ===============
 
-The game code can be run on an Arduino Due or, using Cinder, on a Mac or Windows PC.
+The game code can be run on an Arduino Due, using Cinder or using SDL on a Mac, Linux or Windows PC.
 
 Arduino
 -------
@@ -41,9 +41,10 @@ Mac
 Prerequisites:
 
 - XCode command line tools
+- CMake
 - SDL2 http://libsdl.org/download-2.0.php
 
-Run `build.sh` to compile everything. After that, start the binary `pixelApp/pixelApp`.
+Run `build.sh` to compile everything. After that, start the binary `build/PixelApp`.
 
 Linux
 -----
@@ -51,9 +52,10 @@ Linux
 Prerequisites:
 
 - A working GCC toolchain (install "build-essential" on Debian/Ubuntu)
+- CMake
 - SDL2 (install "libsdl2-dev")
 
-Run `build.sh` to compile everything. After that, start the binary `pixelApp/pixelApp`.
+Run `build.sh` to compile everything. After that, start the binary `build/PixelApp`.
 
 Hardware
 ========
@@ -84,3 +86,5 @@ Contributors
 ============
 
 - Kris Temmerman - original design and implementation
+- Michael Koetter - Ported to SDL2 for Linux compatibility
+- Hans Robeers - Ported to CMake & Removed Cinder dependency of the ClassGenerator for Linux compatibility

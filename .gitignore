@@ -1,11 +1,38 @@
-Debug
-Release
-*.sdf
-*.opensdf
-*.suo
-*.user
+build
 
+# C++ objects and libs
 
+*.slo
+*.lo
 *.o
-
+*.obj
 *.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# CMake
+
+*txt.user
+*txt.user.*
+*_automoc.cpp
+*.cbp
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# Visual Studio
+
+Backup*
+UpgradeLog*
+_UpgradeReport*
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.vcxproj*
+*.pdb

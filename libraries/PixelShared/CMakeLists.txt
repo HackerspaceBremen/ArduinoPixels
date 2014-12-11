@@ -1,0 +1,165 @@
+#
+#  PixelShared
+#  CMakeLists.txt
+#
+#  Created on: 2014/12/01
+#      Author: Hans Robeers (https://github.com/hrobeers)
+#
+
+project(PixelShared)
+
+set(SRC
+    Hero.cpp
+    PixelMain.cpp
+    PixelMain_Game.cpp
+    PixelMain_Game_p1.cpp
+    PixelMain_Game_p2.cpp
+    PixelMain_Game_vs.cpp
+    PixelMain_Intro.cpp
+    PixelMain_Menu.cpp
+)
+
+set(HDR
+    Alien.h
+    Alien1.h
+    Alien2.h
+    Alien3.h
+    AlienPond.h
+    Blood.h
+    Cloud.h
+    DataAlien1Dead.h
+    DataAlien1Feed.h
+    DataAlien1Head.h
+    DataAlien2Dead.h
+    DataAlien2Feed.h
+    DataAlien2Head.h
+    DataAlienShoot1.h
+    DataAlienShoot2.h
+    DataAliens.h
+    DataBackGrass.h
+    DataBackScroll.h
+    DataBackSky.h
+    DataBackSpace.h
+    DataBlood1.h
+    DataBlood2.h
+    DataBlood3.h
+    DataBoyDeath.h
+    DataBoyShoot1.h
+    DataBoyShoot2.h
+    DataBush.h
+    DataCalibration.h
+    DataCity.h
+    DataCloud1.h
+    DataDuckBig.h
+    DataDuckSmall.h
+    DataFlower.h
+    DataGirl.h
+    DataGirlBall.h
+    DataGirlBallStroke1.h
+    DataGirlCrouch.h
+    DataGirlCrouchBlock.h
+    DataGirlCrouchHit.h
+    DataGirlCrouchKick.h
+    DataGirlCrouchWalk1.h
+    DataGirlCrouchWalk2.h
+    DataGirlDeath.h
+    DataGirlGotHit1.h
+    DataGirlGotHit2.h
+    DataGirlJump.h
+    DataGirlJumpBlock.h
+    DataGirlJumpHit.h
+    DataGirlJumpKick.h
+    DataGirlShoot1.h
+    DataGirlShoot2.h
+    DataGirlStand.h
+    DataGirlStandBlock.h
+    DataGirlStandHit1.h
+    DataGirlStandHit2.h
+    DataGirlStandKick.h
+    DataGirlWalk1.h
+    DataGirlWalk2.h
+    DataGirlWalk3.h
+    DataHitPointTest.h
+    DataInstructions.h
+    DataInterface.h
+    DataInterface2.h
+    DataLife0.h
+    DataLife1.h
+    DataLife2.h
+    DataLife3.h
+    DataLife4.h
+    DataLife5.h
+    DataLife6.h
+    DataLife7.h
+    DataLifeLight.h
+    DataManCrouch.h
+    DataManCrouchBlock.h
+    DataManCrouchHit.h
+    DataManCrouchKick.h
+    DataManCrouchWalk1.h
+    DataManCrouchWalk2.h
+    DataManGitHit1.h
+    DataManGitHit2.h
+    DataManJump.h
+    DataManJumpBlock.h
+    DataManJumpHit.h
+    DataManJumpKick.h
+    DataManRay1.h
+    DataManRay2.h
+    DataManStand.h
+    DataManStandBlock.h
+    DataManStandHit1.h
+    DataManStandHit2.h
+    DataManStandKick.h
+    DataManWalk1.h
+    DataManWalk2.h
+    DataManWalk3.h
+    DataManWalk4.h
+    DataMenuMain.h
+    DataMenuSelect1.h
+    DataMenuSelect2.h
+    DataMenuSelect3.h
+    DataPaddo.h
+    DataPond.h
+    DataSpaceArmL.h
+    DataSpaceArmR.h
+    DataSpaceBottem.h
+    DataSpaceHead.h
+    DataSpaceShip.h
+    DataSplash1.h
+    DataSplash2.h
+    DataStarBig.h
+    DataStarSmall.h
+    DataTextBoyWins.h
+    DataTextGameOver.h
+    DataTextGirlWins.h
+    DataTextInvasion.h
+    DataTextPressToPlay.h
+    DataTextYouWin.h
+    DataThreeClose.h
+    DataThreeFar.h
+    DecorSprite.h
+    GameOverText.h
+    Hero.h
+    Life.h
+    Live.h
+    PixelData.h
+    PixelMain.h
+    SpaceShip.h
+    SpecialAttack.h
+    Sprite.h
+    Stage.h
+    Star.h
+    Vector.h
+    WaterSplash.h
+    WinSprite.h
+    npRect.h
+)
+
+add_library(PixelShared ${SRC} ${HDR})
+
+add_subdirectory(../PixelGame "${CMAKE_SOURCE_DIR}/libraries/PixelGame")
+
+target_link_libraries(PixelShared
+    PixelGame
+)
