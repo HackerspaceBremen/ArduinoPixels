@@ -12,13 +12,11 @@
 class DecorSprite:public Sprite
 {
 public:
-    DecorSprite(){ fxReal =0;depth=1;hasHitRect=false;}
+    DecorSprite() : depth(1) {fxReal =0; hasHitRect=false;}
     
     void setLevelPos(float stagefx)
     {
         fx = fxReal -stagefx*depth;
-    
-    
     }
   
     float depth;

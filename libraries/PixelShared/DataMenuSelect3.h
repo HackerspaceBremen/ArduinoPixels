@@ -2,233 +2,236 @@
 #ifndef _DataMenuSelect3_h
 #define _DataMenuSelect3_h
 #include "PixelData.h"
-class DataMenuSelect3:public PixelData{ 
-public:
-    DataMenuSelect3()
-   {
-       width =24;
-        height=8;
-       centerX=12;
-        centerY=8;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=255;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=255;
-        indices[10]=255;
-        indices[11]=255;
-        indices[12]=255;
-        indices[13]=255;
-        indices[14]=255;
-        indices[15]=255;
-        indices[16]=255;
-        indices[17]=0;
-        indices[18]=0;
-        indices[19]=0;
-        indices[20]=0;
-        indices[21]=0;
-        indices[22]=0;
-        indices[23]=255;
-        indices[24]=255;
-        indices[25]=255;
-        indices[26]=0;
-        indices[27]=0;
-        indices[28]=0;
-        indices[29]=0;
-        indices[30]=0;
-        indices[31]=0;
-        indices[32]=255;
-        indices[33]=255;
-        indices[34]=255;
-        indices[35]=255;
-        indices[36]=255;
-        indices[37]=255;
-        indices[38]=255;
-        indices[39]=255;
-        indices[40]=255;
-        indices[41]=0;
-        indices[42]=4;
-        indices[43]=4;
-        indices[44]=4;
-        indices[45]=4;
-        indices[46]=0;
-        indices[47]=255;
-        indices[48]=255;
-        indices[49]=0;
-        indices[50]=0;
-        indices[51]=8;
-        indices[52]=8;
-        indices[53]=8;
-        indices[54]=8;
-        indices[55]=0;
-        indices[56]=0;
-        indices[57]=0;
-        indices[58]=0;
-        indices[59]=0;
-        indices[60]=0;
-        indices[61]=0;
-        indices[62]=0;
-        indices[63]=0;
-        indices[64]=0;
-        indices[65]=0;
-        indices[66]=4;
-        indices[67]=4;
-        indices[68]=4;
-        indices[69]=4;
-        indices[70]=0;
-        indices[71]=0;
-        indices[72]=255;
-        indices[73]=0;
-        indices[74]=8;
-        indices[75]=12;
-        indices[76]=16;
-        indices[77]=16;
-        indices[78]=16;
-        indices[79]=0;
-        indices[80]=0;
-        indices[81]=20;
-        indices[82]=0;
-        indices[83]=20;
-        indices[84]=0;
-        indices[85]=0;
-        indices[86]=20;
-        indices[87]=20;
-        indices[88]=0;
-        indices[89]=4;
-        indices[90]=4;
-        indices[91]=4;
-        indices[92]=4;
-        indices[93]=4;
-        indices[94]=4;
-        indices[95]=0;
-        indices[96]=0;
-        indices[97]=0;
-        indices[98]=8;
-        indices[99]=16;
-        indices[100]=4;
-        indices[101]=16;
-        indices[102]=4;
-        indices[103]=0;
-        indices[104]=0;
-        indices[105]=20;
-        indices[106]=0;
-        indices[107]=20;
-        indices[108]=0;
-        indices[109]=0;
-        indices[110]=20;
-        indices[111]=0;
-        indices[112]=0;
-        indices[113]=0;
-        indices[114]=16;
-        indices[115]=16;
-        indices[116]=16;
-        indices[117]=16;
-        indices[118]=0;
-        indices[119]=0;
-        indices[120]=0;
-        indices[121]=8;
-        indices[122]=8;
-        indices[123]=16;
-        indices[124]=16;
-        indices[125]=16;
-        indices[126]=16;
-        indices[127]=8;
-        indices[128]=0;
-        indices[129]=0;
-        indices[130]=20;
-        indices[131]=0;
-        indices[132]=0;
-        indices[133]=20;
-        indices[134]=20;
-        indices[135]=0;
-        indices[136]=255;
-        indices[137]=0;
-        indices[138]=16;
-        indices[139]=4;
-        indices[140]=16;
-        indices[141]=4;
-        indices[142]=0;
-        indices[143]=255;
-        indices[144]=0;
-        indices[145]=0;
-        indices[146]=0;
-        indices[147]=0;
-        indices[148]=16;
-        indices[149]=0;
-        indices[150]=0;
-        indices[151]=0;
-        indices[152]=0;
-        indices[153]=0;
-        indices[154]=0;
-        indices[155]=0;
-        indices[156]=0;
-        indices[157]=0;
-        indices[158]=0;
-        indices[159]=0;
-        indices[160]=255;
-        indices[161]=0;
-        indices[162]=16;
-        indices[163]=16;
-        indices[164]=16;
-        indices[165]=16;
-        indices[166]=0;
-        indices[167]=255;
-        indices[168]=255;
-        indices[169]=255;
-        indices[170]=255;
-        indices[171]=0;
-        indices[172]=0;
-        indices[173]=0;
-        indices[174]=255;
-        indices[175]=255;
-        indices[176]=255;
-        indices[177]=255;
-        indices[178]=255;
-        indices[179]=255;
-        indices[180]=255;
-        indices[181]=255;
-        indices[182]=255;
-        indices[183]=255;
-        indices[184]=255;
-        indices[185]=0;
-        indices[186]=0;
-        indices[187]=0;
-        indices[188]=0;
-        indices[189]=0;
-        indices[190]=0;
-        indices[191]=255;
-        color= new uint8_t[24];
-        color[0] =255;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-        color[4] =0;
-        color[5] =0;
-        color[6] =0;
-        color[7] =255;
-        color[8] =255;
-        color[9] =234;
-        color[10] =0;
-        color[11] =255;
-        color[12] =255;
-        color[13] =201;
-        color[14] =135;
-        color[15] =255;
-        color[16] =255;
-        color[17] =198;
-        color[18] =135;
-        color[19] =255;
-        color[20] =255;
-        color[21] =255;
-        color[22] =255;
-        color[23] =255;
-   };
+namespace _MenuSelect3_ {
+    const uint8_t indices[192] = {
+        255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,255
+        ,255
+        ,0
+        ,0
+        ,8
+        ,8
+        ,8
+        ,8
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,0
+        ,255
+        ,0
+        ,8
+        ,12
+        ,16
+        ,16
+        ,16
+        ,0
+        ,0
+        ,20
+        ,0
+        ,20
+        ,0
+        ,0
+        ,20
+        ,20
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,0
+        ,0
+        ,8
+        ,16
+        ,4
+        ,16
+        ,4
+        ,0
+        ,0
+        ,20
+        ,0
+        ,20
+        ,0
+        ,0
+        ,20
+        ,0
+        ,0
+        ,0
+        ,16
+        ,16
+        ,16
+        ,16
+        ,0
+        ,0
+        ,0
+        ,8
+        ,8
+        ,16
+        ,16
+        ,16
+        ,16
+        ,8
+        ,0
+        ,0
+        ,20
+        ,0
+        ,0
+        ,20
+        ,20
+        ,0
+        ,255
+        ,0
+        ,16
+        ,4
+        ,16
+        ,4
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,16
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,0
+        ,16
+        ,16
+        ,16
+        ,16
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+    };
+    const uint8_t color[24] = {
+        255
+        ,0
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,234
+        ,0
+        ,255
+        ,255
+        ,201
+        ,135
+        ,255
+        ,255
+        ,198
+        ,135
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataMenuSelect3 : public PixelDataImpl<DataMenuSelect3<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 24; }
+       static constexpr uint8_t height() { return 8; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _MenuSelect3_::indices; }
+       static constexpr const uint8_t* color() { return _MenuSelect3_::color; }
+       constexpr DataMenuSelect3(){}
 };
 #endif

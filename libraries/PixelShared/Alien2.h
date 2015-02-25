@@ -10,32 +10,44 @@
 #define PixelGameLocal_Alien2_h
 #include "Alien.h"
 #include "Sprite.h"
+
+#include "DataAlien2Head.h"
+#include "DataAlien2Feed.h"
+
 class Alien2 : public Alien
 {
-    
+    float fxStart;
+    float  currentTime;
+    float posOld;
+    Sprite feet;
+
+    const DataAlien2Head<> headData;
+    const DataAlien2Feed<> feetData;
     
 public:
-    Alien2(){};
+    Alien2() { }
     void setup(){
         
         heroType=3;
         fxStart = fxReal ;
-          currentTime =0+(float)rand()/RAND_MAX;
+        currentTime =0+(float)rand()/RAND_MAX;
         posOld =0;
-         life =1;
+        life =1;
         fxStart =fxReal;
-        feet =new Sprite();
-        addChild(feet);
+
+        currentData = &headData;
+        feet.currentData = &feetData;
+        addChild(&feet);
     }
-    virtual void reset()
+    virtual void resetImpl() override
     {
         fxReal =fxStart;
         isDead =false;
         life =1;
         fy =15;
-         saveTime =-1;
+        saveTime =-1;
     }
-    void update(float timeElapsed)
+    virtual void update(float timeElapsed) override
     {
       
         if(intHidden)return;
@@ -68,9 +80,9 @@ public:
             
             }
             
-            feet->fx = dirFeet*3;
-            feet->fy =0;
-            if(dirFeetP>0)feet->fy =-1;
+            feet.fx = dirFeet*3;
+            feet.fy =0;
+            if(dirFeetP>0)feet.fy =-1;
             fxReal = fxStart+  dir*10;
         
          //  fxReal+=hitSpeed* timeElapsed;
@@ -85,10 +97,6 @@ public:
         }
 
     }
-    float fxStart;
-    float  currentTime;
-    float posOld;
-    Sprite *feet;
 };
 
 

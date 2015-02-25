@@ -2,23 +2,26 @@
 #ifndef _DataHitPointTest_h
 #define _DataHitPointTest_h
 #include "PixelData.h"
-class DataHitPointTest:public PixelData{ 
-public:
-    DataHitPointTest()
-   {
-       width =2;
-        height=1;
-       centerX=1;
-        centerY=1;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=0;
-        color= new uint8_t[4];
-        color[0] =237;
-        color[1] =28;
-        color[2] =36;
-        color[3] =255;
-   };
+namespace _HitPointTest_ {
+    const uint8_t indices[2] = {
+        0
+        ,0
+    };
+    const uint8_t color[4] = {
+        237
+        ,28
+        ,36
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataHitPointTest : public PixelDataImpl<DataHitPointTest<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 2; }
+       static constexpr uint8_t height() { return 1; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _HitPointTest_::indices; }
+       static constexpr const uint8_t* color() { return _HitPointTest_::color; }
+       constexpr DataHitPointTest(){}
 };
 #endif

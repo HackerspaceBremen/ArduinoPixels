@@ -28,15 +28,14 @@ public:
         isCrouching =false;
         isDead =false;
         hitType=0;
-        currentData=0;
         isWaterHit =false;
         isCrouchingWalking =false;
     };
     bool hitType;
    
    
-    void setKey(int key);
-    void setup(int type);
+    void setKey(uint8_t key);
+    void setup(uint8_t type);
     void update(float timeElapsed);
     void startWalking();
     void startCrouching();
@@ -64,40 +63,37 @@ public:
     float airSpeed;//current jump speed
     float speedStepX;
     float groundY;
-    
- 
-   
-  
-    PixelData * jumpData;
-    PixelData * jumpKickData;
-    PixelData * jumpHitData;
-    PixelData * jumpBlockData;
+
+    const PixelData * jumpData;
+    const PixelData * jumpKickData;
+    const PixelData * jumpHitData;
+    const PixelData * jumpBlockData;
     
     
-    PixelData * crouchData;
-    PixelData * crouchWalk1Data;
-    PixelData * crouchWalk2Data;
-    PixelData * crouchKickData;
-    PixelData * crouchHitData;
-    PixelData * crouchBlockData;
+    const PixelData * crouchData;
+    const PixelData * crouchWalk1Data;
+    const PixelData * crouchWalk2Data;
+    const PixelData * crouchKickData;
+    const PixelData * crouchHitData;
+    const PixelData * crouchBlockData;
     
-    PixelData * standData;
+    const PixelData * standData;
     
-    PixelData * standKickData;
-    PixelData * standHitData1;
-    PixelData * standHitData2;
-    PixelData * standBlockData;
+    const PixelData * standKickData;
+    const PixelData * standHitData1;
+    const PixelData * standHitData2;
+    const PixelData * standBlockData;
     
     
-    PixelData * walk1Data;
-    PixelData * walk2Data;
-    PixelData * walk3Data;
+    const PixelData * walk1Data;
+    const PixelData * walk2Data;
+    const PixelData * walk3Data;
     
-    PixelData * gotHitData1;
-    PixelData * gotHitData2;
+    const PixelData * gotHitData1;
+    const PixelData * gotHitData2;
     
-    PixelData * deathData;
-    Vector<int> lastKeys;
+    const PixelData * deathData;
+    StackVector<int> lastKeys;
 };
 
 

@@ -32,7 +32,7 @@ void SDLPixelRenderer::draw() {
 	SDL_UpdateWindowSurface(window);
 }
 
-void SDLPixelRenderer::setPixel(int x,int y,uint8_t r, uint8_t g , uint8_t b, uint8_t a) {
+void SDLPixelRenderer::setPixel(int x,int y,uint8_t r, uint8_t g , uint8_t b, uint8_t /*a*/) {
 	uint32_t c = SDL_MapRGB(surface->format,r,g,b);
 	setPixel(x, y, c);
 }
@@ -50,7 +50,7 @@ void SDLPixelRenderer::setPixel(int x, int y, uint32_t c) {
 	SDL_UnlockSurface(surface);
 }
 
-void SDLPixelRenderer::setBrightness(int val) {
+void SDLPixelRenderer::setBrightness(uint8_t /*val*/) {
 	// not implemented
 }
 

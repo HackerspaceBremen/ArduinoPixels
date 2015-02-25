@@ -14,10 +14,9 @@
 class Cloud:public Sprite
 {
 public:
-    Cloud(){};
+    Cloud(){}
     void setup()
     {
-        
         speed = rand()%4 +3;
     }
    

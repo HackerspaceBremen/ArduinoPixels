@@ -2,29 +2,32 @@
 #ifndef _DataSpaceArmL_h
 #define _DataSpaceArmL_h
 #include "PixelData.h"
-class DataSpaceArmL:public PixelData{ 
-public:
-    DataSpaceArmL()
-   {
-       width =4;
-        height=2;
-       centerX=2;
-        centerY=2;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=0;
-        indices[5]=0;
-        indices[6]=0;
-        indices[7]=0;
-        color= new uint8_t[4];
-        color[0] =141;
-        color[1] =198;
-        color[2] =63;
-        color[3] =255;
-   };
+namespace _SpaceArmL_ {
+    const uint8_t indices[8] = {
+        0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+    };
+    const uint8_t color[4] = {
+        141
+        ,198
+        ,63
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataSpaceArmL : public PixelDataImpl<DataSpaceArmL<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 4; }
+       static constexpr uint8_t height() { return 2; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _SpaceArmL_::indices; }
+       static constexpr const uint8_t* color() { return _SpaceArmL_::color; }
+       constexpr DataSpaceArmL(){}
 };
 #endif

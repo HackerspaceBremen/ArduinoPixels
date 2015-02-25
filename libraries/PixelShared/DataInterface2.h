@@ -2,197 +2,200 @@
 #ifndef _DataInterface2_h
 #define _DataInterface2_h
 #include "PixelData.h"
-class DataInterface2:public PixelData{ 
-public:
-    DataInterface2()
-   {
-       width =9;
-        height=16;
-       centerX=4;
-        centerY=16;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=4;
-        indices[2]=4;
-        indices[3]=4;
-        indices[4]=4;
-        indices[5]=4;
-        indices[6]=4;
-        indices[7]=4;
-        indices[8]=4;
-        indices[9]=0;
-        indices[10]=4;
-        indices[11]=4;
-        indices[12]=4;
-        indices[13]=4;
-        indices[14]=4;
-        indices[15]=4;
-        indices[16]=4;
-        indices[17]=4;
-        indices[18]=0;
-        indices[19]=4;
-        indices[20]=4;
-        indices[21]=8;
-        indices[22]=8;
-        indices[23]=8;
-        indices[24]=12;
-        indices[25]=4;
-        indices[26]=4;
-        indices[27]=0;
-        indices[28]=4;
-        indices[29]=4;
-        indices[30]=16;
-        indices[31]=16;
-        indices[32]=16;
-        indices[33]=20;
-        indices[34]=12;
-        indices[35]=4;
-        indices[36]=0;
-        indices[37]=4;
-        indices[38]=4;
-        indices[39]=24;
-        indices[40]=16;
-        indices[41]=24;
-        indices[42]=16;
-        indices[43]=12;
-        indices[44]=4;
-        indices[45]=0;
-        indices[46]=4;
-        indices[47]=8;
-        indices[48]=16;
-        indices[49]=16;
-        indices[50]=16;
-        indices[51]=16;
-        indices[52]=8;
-        indices[53]=4;
-        indices[54]=0;
-        indices[55]=4;
-        indices[56]=4;
-        indices[57]=4;
-        indices[58]=16;
-        indices[59]=16;
-        indices[60]=4;
-        indices[61]=4;
-        indices[62]=4;
-        indices[63]=0;
-        indices[64]=4;
-        indices[65]=4;
-        indices[66]=4;
-        indices[67]=4;
-        indices[68]=4;
-        indices[69]=4;
-        indices[70]=4;
-        indices[71]=4;
-        indices[72]=0;
-        indices[73]=4;
-        indices[74]=4;
-        indices[75]=4;
-        indices[76]=4;
-        indices[77]=4;
-        indices[78]=4;
-        indices[79]=4;
-        indices[80]=4;
-        indices[81]=0;
-        indices[82]=4;
-        indices[83]=4;
-        indices[84]=4;
-        indices[85]=28;
-        indices[86]=4;
-        indices[87]=28;
-        indices[88]=4;
-        indices[89]=4;
-        indices[90]=0;
-        indices[91]=4;
-        indices[92]=4;
-        indices[93]=28;
-        indices[94]=28;
-        indices[95]=28;
-        indices[96]=28;
-        indices[97]=32;
-        indices[98]=4;
-        indices[99]=0;
-        indices[100]=4;
-        indices[101]=4;
-        indices[102]=28;
-        indices[103]=28;
-        indices[104]=28;
-        indices[105]=28;
-        indices[106]=32;
-        indices[107]=4;
-        indices[108]=0;
-        indices[109]=4;
-        indices[110]=4;
-        indices[111]=4;
-        indices[112]=28;
-        indices[113]=28;
-        indices[114]=32;
-        indices[115]=4;
-        indices[116]=4;
-        indices[117]=0;
-        indices[118]=4;
-        indices[119]=4;
-        indices[120]=4;
-        indices[121]=4;
-        indices[122]=32;
-        indices[123]=4;
-        indices[124]=4;
-        indices[125]=4;
-        indices[126]=0;
-        indices[127]=4;
-        indices[128]=4;
-        indices[129]=4;
-        indices[130]=4;
-        indices[131]=4;
-        indices[132]=4;
-        indices[133]=4;
-        indices[134]=4;
-        indices[135]=0;
-        indices[136]=4;
-        indices[137]=4;
-        indices[138]=4;
-        indices[139]=4;
-        indices[140]=4;
-        indices[141]=4;
-        indices[142]=4;
-        indices[143]=4;
-        color= new uint8_t[36];
-        color[0] =34;
-        color[1] =34;
-        color[2] =34;
-        color[3] =255;
-        color[4] =61;
-        color[5] =61;
-        color[6] =61;
-        color[7] =255;
-        color[8] =255;
-        color[9] =210;
-        color[10] =0;
-        color[11] =255;
-        color[12] =255;
-        color[13] =212;
-        color[14] =6;
-        color[15] =255;
-        color[16] =255;
-        color[17] =198;
-        color[18] =135;
-        color[19] =255;
-        color[20] =255;
-        color[21] =201;
-        color[22] =135;
-        color[23] =255;
-        color[24] =0;
-        color[25] =0;
-        color[26] =0;
-        color[27] =255;
-        color[28] =249;
-        color[29] =0;
-        color[30] =0;
-        color[31] =255;
-        color[32] =180;
-        color[33] =0;
-        color[34] =0;
-        color[35] =255;
-   };
+namespace _Interface2_ {
+    const uint8_t indices[144] = {
+        0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,8
+        ,8
+        ,8
+        ,12
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,16
+        ,16
+        ,16
+        ,20
+        ,12
+        ,4
+        ,0
+        ,4
+        ,4
+        ,24
+        ,16
+        ,24
+        ,16
+        ,12
+        ,4
+        ,0
+        ,4
+        ,8
+        ,16
+        ,16
+        ,16
+        ,16
+        ,8
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,16
+        ,16
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,28
+        ,4
+        ,28
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,28
+        ,28
+        ,28
+        ,28
+        ,32
+        ,4
+        ,0
+        ,4
+        ,4
+        ,28
+        ,28
+        ,28
+        ,28
+        ,32
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,28
+        ,28
+        ,32
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,32
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+    };
+    const uint8_t color[36] = {
+        34
+        ,34
+        ,34
+        ,255
+        ,61
+        ,61
+        ,61
+        ,255
+        ,255
+        ,210
+        ,0
+        ,255
+        ,255
+        ,212
+        ,6
+        ,255
+        ,255
+        ,198
+        ,135
+        ,255
+        ,255
+        ,201
+        ,135
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+        ,249
+        ,0
+        ,0
+        ,255
+        ,180
+        ,0
+        ,0
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataInterface2 : public PixelDataImpl<DataInterface2<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 9; }
+       static constexpr uint8_t height() { return 16; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Interface2_::indices; }
+       static constexpr const uint8_t* color() { return _Interface2_::color; }
+       constexpr DataInterface2(){}
 };
 #endif

@@ -2,119 +2,122 @@
 #ifndef _DataManJumpHit_h
 #define _DataManJumpHit_h
 #include "PixelData.h"
-class DataManJumpHit:public PixelData{ 
-public:
-    DataManJumpHit()
-   {
-       width =9;
-        height=10;
-       centerX=4;
-        centerY=10;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=0;
-        indices[3]=0;
-        indices[4]=0;
-        indices[5]=0;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=255;
-        indices[10]=255;
-        indices[11]=0;
-        indices[12]=0;
-        indices[13]=0;
-        indices[14]=0;
-        indices[15]=255;
-        indices[16]=255;
-        indices[17]=255;
-        indices[18]=255;
-        indices[19]=0;
-        indices[20]=0;
-        indices[21]=0;
-        indices[22]=0;
-        indices[23]=0;
-        indices[24]=0;
-        indices[25]=255;
-        indices[26]=255;
-        indices[27]=255;
-        indices[28]=255;
-        indices[29]=4;
-        indices[30]=4;
-        indices[31]=4;
-        indices[32]=4;
-        indices[33]=255;
-        indices[34]=255;
-        indices[35]=255;
-        indices[36]=255;
-        indices[37]=255;
-        indices[38]=4;
-        indices[39]=0;
-        indices[40]=4;
-        indices[41]=0;
-        indices[42]=255;
-        indices[43]=255;
-        indices[44]=255;
-        indices[45]=255;
-        indices[46]=255;
-        indices[47]=4;
-        indices[48]=4;
-        indices[49]=4;
-        indices[50]=4;
-        indices[51]=255;
-        indices[52]=255;
-        indices[53]=255;
-        indices[54]=255;
-        indices[55]=8;
-        indices[56]=8;
-        indices[57]=8;
-        indices[58]=8;
-        indices[59]=8;
-        indices[60]=8;
-        indices[61]=8;
-        indices[62]=4;
-        indices[63]=4;
-        indices[64]=255;
-        indices[65]=8;
-        indices[66]=8;
-        indices[67]=8;
-        indices[68]=8;
-        indices[69]=255;
-        indices[70]=255;
-        indices[71]=255;
-        indices[72]=255;
-        indices[73]=255;
-        indices[74]=0;
-        indices[75]=0;
-        indices[76]=0;
-        indices[77]=0;
-        indices[78]=255;
-        indices[79]=255;
-        indices[80]=255;
-        indices[81]=255;
-        indices[82]=0;
-        indices[83]=255;
-        indices[84]=255;
-        indices[85]=255;
-        indices[86]=0;
-        indices[87]=255;
-        indices[88]=255;
-        indices[89]=255;
-        color= new uint8_t[12];
-        color[0] =0;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-        color[4] =255;
-        color[5] =198;
-        color[6] =135;
-        color[7] =255;
-        color[8] =34;
-        color[9] =59;
-        color[10] =169;
-        color[11] =255;
-   };
+namespace _ManJumpHit_ {
+    const uint8_t indices[90] = {
+        255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,0
+        ,4
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,4
+        ,4
+        ,255
+        ,8
+        ,8
+        ,8
+        ,8
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+    };
+    const uint8_t color[12] = {
+        0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,198
+        ,135
+        ,255
+        ,34
+        ,59
+        ,169
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataManJumpHit : public PixelDataImpl<DataManJumpHit<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 9; }
+       static constexpr uint8_t height() { return 10; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _ManJumpHit_::indices; }
+       static constexpr const uint8_t* color() { return _ManJumpHit_::color; }
+       constexpr DataManJumpHit(){}
 };
 #endif

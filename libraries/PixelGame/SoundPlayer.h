@@ -14,7 +14,7 @@ class SoundPlayer
     
 public:
     SoundPlayer(){}
-    void playSound(int s)
+    void playSound(int /*s*/)
     {
        
     }

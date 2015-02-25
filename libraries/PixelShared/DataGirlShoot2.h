@@ -2,65 +2,68 @@
 #ifndef _DataGirlShoot2_h
 #define _DataGirlShoot2_h
 #include "PixelData.h"
-class DataGirlShoot2:public PixelData{ 
-public:
-    DataGirlShoot2()
-   {
-       width =8;
-        height=4;
-       centerX=4;
-        centerY=4;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=0;
-        indices[6]=0;
-        indices[7]=255;
-        indices[8]=4;
-        indices[9]=255;
-        indices[10]=4;
-        indices[11]=255;
-        indices[12]=0;
-        indices[13]=8;
-        indices[14]=8;
-        indices[15]=0;
-        indices[16]=255;
-        indices[17]=4;
-        indices[18]=255;
-        indices[19]=4;
-        indices[20]=0;
-        indices[21]=12;
-        indices[22]=8;
-        indices[23]=0;
-        indices[24]=255;
-        indices[25]=255;
-        indices[26]=255;
-        indices[27]=255;
-        indices[28]=255;
-        indices[29]=0;
-        indices[30]=0;
-        indices[31]=255;
-        color= new uint8_t[16];
-        color[0] =79;
-        color[1] =224;
-        color[2] =255;
-        color[3] =255;
-        color[4] =255;
-        color[5] =255;
-        color[6] =255;
-        color[7] =122;
-        color[8] =255;
-        color[9] =255;
-        color[10] =255;
-        color[11] =254;
-        color[12] =255;
-        color[13] =255;
-        color[14] =255;
-        color[15] =250;
-   };
+namespace _GirlShoot2_ {
+    const uint8_t indices[32] = {
+        255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,255
+        ,4
+        ,255
+        ,4
+        ,255
+        ,0
+        ,8
+        ,8
+        ,0
+        ,255
+        ,4
+        ,255
+        ,4
+        ,0
+        ,12
+        ,8
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,255
+    };
+    const uint8_t color[16] = {
+        79
+        ,224
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,122
+        ,255
+        ,255
+        ,255
+        ,254
+        ,255
+        ,255
+        ,255
+        ,250
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataGirlShoot2 : public PixelDataImpl<DataGirlShoot2<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 8; }
+       static constexpr uint8_t height() { return 4; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _GirlShoot2_::indices; }
+       static constexpr const uint8_t* color() { return _GirlShoot2_::color; }
+       constexpr DataGirlShoot2(){}
 };
 #endif

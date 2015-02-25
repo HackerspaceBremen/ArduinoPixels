@@ -25,6 +25,7 @@ set(HDR
     Alien2.h
     Alien3.h
     AlienPond.h
+    Array.h
     Blood.h
     Cloud.h
     DataAlien1Dead.h
@@ -35,9 +36,7 @@ set(HDR
     DataAlien2Head.h
     DataAlienShoot1.h
     DataAlienShoot2.h
-    DataAliens.h
     DataBackGrass.h
-    DataBackScroll.h
     DataBackSky.h
     DataBackSpace.h
     DataBlood1.h
@@ -47,15 +46,11 @@ set(HDR
     DataBoyShoot1.h
     DataBoyShoot2.h
     DataBush.h
-    DataCalibration.h
     DataCity.h
     DataCloud1.h
     DataDuckBig.h
     DataDuckSmall.h
-    DataFlower.h
-    DataGirl.h
-    DataGirlBall.h
-    DataGirlBallStroke1.h
+    Dataflower.h
     DataGirlCrouch.h
     DataGirlCrouchBlock.h
     DataGirlCrouchHit.h
@@ -125,7 +120,6 @@ set(HDR
     DataSpaceArmR.h
     DataSpaceBottem.h
     DataSpaceHead.h
-    DataSpaceShip.h
     DataSplash1.h
     DataSplash2.h
     DataStarBig.h

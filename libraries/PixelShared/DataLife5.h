@@ -2,54 +2,57 @@
 #ifndef _DataLife5_h
 #define _DataLife5_h
 #include "PixelData.h"
-class DataLife5:public PixelData{ 
-public:
-    DataLife5()
-   {
-       width =5;
-        height=5;
-       centerX=2;
-        centerY=5;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=0;
-        indices[2]=255;
-        indices[3]=0;
-        indices[4]=255;
-        indices[5]=0;
-        indices[6]=0;
-        indices[7]=0;
-        indices[8]=4;
-        indices[9]=8;
-        indices[10]=4;
-        indices[11]=4;
-        indices[12]=4;
-        indices[13]=4;
-        indices[14]=8;
-        indices[15]=255;
-        indices[16]=4;
-        indices[17]=4;
-        indices[18]=8;
-        indices[19]=255;
-        indices[20]=255;
-        indices[21]=255;
-        indices[22]=8;
-        indices[23]=255;
-        indices[24]=255;
-        color= new uint8_t[12];
-        color[0] =156;
-        color[1] =156;
-        color[2] =156;
-        color[3] =255;
-        color[4] =249;
-        color[5] =0;
-        color[6] =0;
-        color[7] =255;
-        color[8] =180;
-        color[9] =0;
-        color[10] =0;
-        color[11] =255;
-   };
+namespace _Life5_ {
+    const uint8_t indices[25] = {
+        255
+        ,0
+        ,255
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,4
+        ,8
+        ,4
+        ,4
+        ,4
+        ,4
+        ,8
+        ,255
+        ,4
+        ,4
+        ,8
+        ,255
+        ,255
+        ,255
+        ,8
+        ,255
+        ,255
+    };
+    const uint8_t color[12] = {
+        156
+        ,156
+        ,156
+        ,255
+        ,249
+        ,0
+        ,0
+        ,255
+        ,180
+        ,0
+        ,0
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataLife5 : public PixelDataImpl<DataLife5<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 5; }
+       static constexpr uint8_t height() { return 5; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Life5_::indices; }
+       static constexpr const uint8_t* color() { return _Life5_::color; }
+       constexpr DataLife5(){}
 };
 #endif

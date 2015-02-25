@@ -12,10 +12,21 @@
 #include "Sprite.h"
 #include "PixelData.h"
 
+#include "DataBlood1.h"
+#include "DataBlood2.h"
+#include "DataBlood3.h"
+
 class Blood:public Sprite
 {
+    float currentTime = 0;
+    const DataBlood1<> frame1;
+    const DataBlood2<> frame2;
+    const DataBlood3<> frame3;
 public:
-   Blood(){};
+    float fxReal = 0;
+    bool isUsed = false;
+
+    Blood(){}
     void setup()
     {
         isUsed =false;
@@ -26,7 +37,7 @@ public:
         visible =true;
         isUsed =true;
         currentTime =0.35;
-        currentData = frame1;
+        currentData = &frame1;
     }
     
     void update(float timeElapsed,float stagefx)
@@ -36,11 +47,11 @@ public:
         currentTime -=timeElapsed;
         if(currentTime>0.1 &&currentTime<0.2 )
         {
-            currentData = frame2;
+            currentData = &frame2;
         }
         else if(currentTime<0.1 )
         {
-            currentData = frame3;
+            currentData = &frame3;
         }
         if(currentTime<0.0 ){
             isUsed =false;
@@ -51,17 +62,7 @@ public:
     void setLevelPos(float stagefx)
     {
         fx = fxReal -stagefx;
-        
-        
     }
-    
-    
-    float fxReal;
-    float currentTime;
-   bool isUsed;
-    PixelData *frame1;
-     PixelData *frame2;
-     PixelData *frame3;
 };
 
 

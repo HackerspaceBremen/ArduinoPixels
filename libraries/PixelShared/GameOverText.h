@@ -14,78 +14,69 @@
 #include "DataTextBoyWins.h"
 #include "DataTextYouWin.h"
 #include "DataBackSpace.h"
-class GameOverText:public Sprite
+class GameOverText : public Sprite
 {
+    const DataTextGameOver<> gameOver;
+    const DataTextGirlWins<0, -2> girlWins;
+    const DataTextBoyWins<0, -2> boyWins;
+    const DataTextYouWin<0, -3> youWin;
+
+    Sprite textSprite;
 
 public:
-    GameOverText()
+    GameOverText() { }
+    virtual void resetImpl() override
     {
-       // currentData=new DataBackSpace();
+        textSprite.reset();
+
         drawType =3;
-        textSprite =new Sprite();
-        textSprite->currentData =0;
-        textSprite->fx =45;
-        addChild(textSprite);
-        
+        textSprite.fx =45;
+
         visible =false;
     }
     void show(int type =0)
     {
+        addChild(&textSprite);
+
         visible =true;
-        if( textSprite->currentData==0){
-            if(type==0)textSprite->currentData = new DataTextGameOver();
-            if(type==2)
-            {
-                textSprite->currentData = new DataTextGirlWins();
-                textSprite->currentData-> centerY=12;
-            }
-            if(type==1)
-            {
-                textSprite->currentData= new DataTextBoyWins();
-                textSprite->currentData-> centerY=12;
-            }
-            if(type==3)
-            {
-                textSprite->currentData = new DataTextYouWin();
-                textSprite->currentData-> centerY=13;
-            }
-            
-           
+
+        switch (type) {
+        case 0:
+            textSprite.currentData = &gameOver;
+            break;
+        case 1:
+            textSprite.currentData= &boyWins;
+            break;
+        case 2:
+            textSprite.currentData = &girlWins;
+            break;
+        case 3:
+            textSprite.currentData = &youWin;
+            break;
         }
-       
-       // currentData->color[3] =0;
-         textSprite->fy =-4;
+
+        textSprite.fy =-4;
     }
     void update(float switchTime)
     {
        
         if( switchTime>8&& switchTime<9)
         {
-            // currentData->color[3] =(int)expoEaseIn (1-(switchTime-8),0,255,1);;
-            textSprite->fy = backEaseOut(1-(switchTime-8),-4,13+4,1);
-        }else  if( switchTime<8 && switchTime>1 )
-        {
-            
-            textSprite->fy = 13;
-        }else if(switchTime<1 )
-        {
-        
-         textSprite->fy = expoEaseIn (1-switchTime,13,16,1);
+            textSprite.fy = backEaseOut(1-(switchTime-8),-4,13+4,1);
         }
-        
-    
+        else  if( switchTime<8 && switchTime>1 )
+        {
+            textSprite.fy = 13;
+        }
+        else if(switchTime<1 )
+        {
+            textSprite.fy = expoEaseIn (1-switchTime,13,16,1);
+        }
     }
     void hide()
     {
-        delete currentData;
-        currentData =0;
-        delete textSprite->currentData;
-        textSprite->currentData =0;
-        
-        visible =false;
-    
+        reset();
     }
-    Sprite * textSprite;
 };
 
 

@@ -13,7 +13,6 @@
 
 void  Hero::hitWater()
 {
-
     isWaterHit =true;
     setKey(0);
 }
@@ -22,7 +21,7 @@ void  Hero::hitWater()
 
 
 
-void Hero::setup(int type)
+void Hero::setup(uint8_t type)
 {
     heroType =type;
     
@@ -33,12 +32,12 @@ void Hero::setup(int type)
     airFall =120;
     jumpSpeed =-45;
     isWalking =false;
-     groundY =15;
+    groundY =15;
     attackTime =0;
     attackType =NO_ATTACK;
-   currentData =  standData ;
+    currentData = standData ;
     hitX=0;
-     hitY=0;
+    hitY=0;
     life=7;
     saveTime =0;
     startShoot =false;
@@ -79,13 +78,12 @@ void Hero::setDead()
 
 
 }
-void Hero::setKey(int key)
+void Hero::setKey(uint8_t key)
 {
    //no hit
     if(isDead)return;
     lastKeys.push_back(key);
     if(lastKeys.size()>5)lastKeys.eraseFirst();
-  
     
     if( attackTime<=0)
     {

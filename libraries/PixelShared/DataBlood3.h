@@ -2,42 +2,45 @@
 #ifndef _DataBlood3_h
 #define _DataBlood3_h
 #include "PixelData.h"
-class DataBlood3:public PixelData{ 
-public:
-    DataBlood3()
-   {
-       width =7;
-        height=3;
-       centerX=3;
-        centerY=3;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=255;
-        indices[6]=0;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=255;
-        indices[10]=255;
-        indices[11]=255;
-        indices[12]=255;
-        indices[13]=255;
-        indices[14]=255;
-        indices[15]=0;
-        indices[16]=255;
-        indices[17]=255;
-        indices[18]=255;
-        indices[19]=0;
-        indices[20]=255;
-        color= new uint8_t[4];
-        color[0] =151;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-   };
+namespace _Blood3_ {
+    const uint8_t indices[21] = {
+        0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+    };
+    const uint8_t color[4] = {
+        151
+        ,0
+        ,0
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataBlood3 : public PixelDataImpl<DataBlood3<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 7; }
+       static constexpr uint8_t height() { return 3; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Blood3_::indices; }
+       static constexpr const uint8_t* color() { return _Blood3_::color; }
+       constexpr DataBlood3(){}
 };
 #endif

@@ -8,82 +8,54 @@
 
 #include "PixelMain.h"
 #include "DataTextInvasion.h"
-//#include "DataSpaceShip.h"
-#include "DataStarBig.h"
-#include "DataStarSmall.h"
 #include "DataTextPressToPlay.h"
 #include "DataBackSpace.h"
 
+const DataTextInvasion<> dataTextInvasion;
+const DataTextPressToPlay<> dataTextPressToPlay;
+const DataBackSpace<> dataBackSpace;
 
 void PixelMain::allocIntro()
 {
-   
-    if(invasionText->currentData==0)
-     invasionText->currentData = new DataTextInvasion();
-     pressKeyText->currentData = new DataTextPressToPlay();
-}
-void PixelMain::deallocInto()
-{
-  
-    delete invasionText->currentData;
-    invasionText->currentData =0;
-    delete pressKeyText->currentData ;
-    pressKeyText->currentData =0;
+    invasionText.currentData = &dataTextInvasion;
+    pressKeyText.currentData = &dataTextPressToPlay;
 }
 void PixelMain::setupIntro()
 {
-    backgroundIntro = new  Sprite();
-    backgroundIntro->drawType =3;
-    backgroundIntro->currentData =new DataBackSpace();
-    stageIntro.addChild(backgroundIntro);
+    backgroundIntro.drawType =3;
+    backgroundIntro.currentData = &dataBackSpace;
+    stageIntro.addChild(&backgroundIntro);
     
-    
-    PixelData * starBig =new DataStarBig();
-    PixelData * starSmall =new DataStarSmall();
-    
-    for (int i=0;i<20;i++)
+    for (int i=0;i<MAX_STARS;i++)
     {
-        Star *s =new Star();
-        s->dataBig = starBig;
-        s->dataSmall = starSmall;
+        Star *s = &_stars[i];
         s->randomize();
-        
         stageIntro.addChild(s);
-        stars.push_back(s);
-        
     }
 
+    stageIntro.addChild(&invasionText);
+    invasionText.fx = 45;
+    invasionText.fy = 12;
+
+    spaceShip.setup();
+    stageIntro.addChild(&spaceShip);
+    spaceShip.fx = 45;
+    spaceShip.fy = 13;
+
+    stageIntro.addChild(&pressKeyText);
+    pressKeyText.fx = 45;
+    pressKeyText.fy = 12;
     
-    
-    invasionText =new Sprite();
-    // invasionText->currentData = new DataTextInvasion();
-    stageIntro.addChild(invasionText);
-    invasionText->fx = 45;
-    invasionText->fy = 12;
-    
-    spaceShip =new SpaceShip();
-    spaceShip->setup();
-   stageIntro.addChild(spaceShip);
-    spaceShip->fx = 45;
-    spaceShip->fy = 13;
-    
-    
-    pressKeyText=new Sprite();
-    // pressKeyText->currentData = new DataTextPressToPlay();
-    stageIntro.addChild(pressKeyText);
-    pressKeyText->fx = 45;
-    pressKeyText->fy = 12;
-    
-     resetIntro();
+    resetIntro();
 }
 void PixelMain::resetIntro()
 {
     
     introTime=0;
-    invasionText->fx = -45;
-     spaceShip->fx = -20;
-    spaceShip->reset();
-    pressKeyText->visible =false;
+    invasionText.fx = -45;
+     spaceShip.fx = -20;
+    spaceShip.reset();
+    pressKeyText.visible =false;
 
 }
 void PixelMain::updateIntro(float timeElapsed)
@@ -104,51 +76,33 @@ void PixelMain::updateIntro(float timeElapsed)
     
     }
    
-    
-
-    if(step==1)
+    switch (step)
     {
-      
-       
-        invasionText->fx = Sprite::backEaseOut(stepTime,-45,90,1);
-    
-    }else if(step==4)
-    {
-    
-        invasionText->fx = Sprite::linearEase(stepTime,45,90+45,1);
-        spaceShip->fx = Sprite::linearEase(stepTime,-20,20+45+2,1);
-
-
-    }else if(step==5)
-    {
-        spaceShip->showHead();
-        
+    case 1:
+        invasionText.fx = Sprite::backEaseOut(stepTime,-45,90,1);
+        break;
+    case 4:
+        invasionText.fx = Sprite::linearEase(stepTime,45,90+45,1);
+        spaceShip.fx = Sprite::linearEase(stepTime,-20,20+45+2,1);
+        break;
+    case 5:
+        spaceShip.showHead();
+        break;
+    case 12:
+        spaceShip.fx = Sprite::linearEase(stepTime,45+2,20+45,1);
+        break;
+    case 16:
+        resetIntro();
+        break;
+    default:
+        if (step>13&& step<16)
+            pressKeyText.visible = (stepTime<0.7);
+        break;
     }
-    else if(step==12)
-    {
-        spaceShip->fx = Sprite::linearEase(stepTime,45+2,20+45,1);
-    }
-    else if(step>13&& step<16 )
-    {
-       
-        if(stepTime<0.7){
-            pressKeyText->visible =true;
-        }else
-        {
-        pressKeyText->visible =false;
-        }
-
-        
-        
-    }
-       else if(step==16)resetIntro();
     
-    spaceShip->update(timeElapsed);
+    spaceShip.update(timeElapsed);
     
-    for (size_t i=0;i<stars.size();i++)
-    {
-        stars[i]->update(timeElapsed);
-    
-    }
+    for (size_t i=0;i<MAX_STARS;i++)
+        _stars[i].update(timeElapsed);
     
 }

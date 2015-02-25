@@ -2,22 +2,25 @@
 #ifndef _DataStarSmall_h
 #define _DataStarSmall_h
 #include "PixelData.h"
-class DataStarSmall:public PixelData{ 
-public:
-    DataStarSmall()
-   {
-       width =1;
-        height=1;
-       centerX=0;
-        centerY=1;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        color= new uint8_t[4];
-        color[0] =51;
-        color[1] =51;
-        color[2] =51;
-        color[3] =255;
-   };
+namespace _StarSmall_ {
+    const uint8_t indices[1] = {
+        0
+    };
+    const uint8_t color[4] = {
+        51
+        ,51
+        ,51
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataStarSmall : public PixelDataImpl<DataStarSmall<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 1; }
+       static constexpr uint8_t height() { return 1; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _StarSmall_::indices; }
+       static constexpr const uint8_t* color() { return _StarSmall_::color; }
+       constexpr DataStarSmall(){}
 };
 #endif

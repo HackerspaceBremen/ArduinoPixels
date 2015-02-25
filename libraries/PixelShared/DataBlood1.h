@@ -2,30 +2,33 @@
 #ifndef _DataBlood1_h
 #define _DataBlood1_h
 #include "PixelData.h"
-class DataBlood1:public PixelData{ 
-public:
-    DataBlood1()
-   {
-       width =3;
-        height=3;
-       centerX=1;
-        centerY=3;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=0;
-        indices[2]=255;
-        indices[3]=0;
-        indices[4]=0;
-        indices[5]=0;
-        indices[6]=255;
-        indices[7]=0;
-        indices[8]=255;
-        color= new uint8_t[4];
-        color[0] =151;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-   };
+namespace _Blood1_ {
+    const uint8_t indices[9] = {
+        255
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+        ,0
+        ,255
+    };
+    const uint8_t color[4] = {
+        151
+        ,0
+        ,0
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataBlood1 : public PixelDataImpl<DataBlood1<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 3; }
+       static constexpr uint8_t height() { return 3; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Blood1_::indices; }
+       static constexpr const uint8_t* color() { return _Blood1_::color; }
+       constexpr DataBlood1(){}
 };
 #endif

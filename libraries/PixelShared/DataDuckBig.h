@@ -2,41 +2,44 @@
 #ifndef _DataDuckBig_h
 #define _DataDuckBig_h
 #include "PixelData.h"
-class DataDuckBig:public PixelData{ 
-public:
-    DataDuckBig()
-   {
-       width =4;
-        height=4;
-       centerX=2;
-        centerY=4;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=4;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=4;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=4;
-        indices[10]=4;
-        indices[11]=4;
-        indices[12]=255;
-        indices[13]=4;
-        indices[14]=4;
-        indices[15]=4;
-        color= new uint8_t[8];
-        color[0] =255;
-        color[1] =147;
-        color[2] =8;
-        color[3] =255;
-        color[4] =255;
-        color[5] =194;
-        color[6] =8;
-        color[7] =255;
-   };
+namespace _DuckBig_ {
+    const uint8_t indices[16] = {
+        0
+        ,4
+        ,255
+        ,255
+        ,255
+        ,4
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,255
+        ,4
+        ,4
+        ,4
+    };
+    const uint8_t color[8] = {
+        255
+        ,147
+        ,8
+        ,255
+        ,255
+        ,194
+        ,8
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataDuckBig : public PixelDataImpl<DataDuckBig<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 4; }
+       static constexpr uint8_t height() { return 4; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _DuckBig_::indices; }
+       static constexpr const uint8_t* color() { return _DuckBig_::color; }
+       constexpr DataDuckBig(){}
 };
 #endif

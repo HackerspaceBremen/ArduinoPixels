@@ -2,46 +2,49 @@
 #ifndef _DataLife0_h
 #define _DataLife0_h
 #include "PixelData.h"
-class DataLife0:public PixelData{ 
-public:
-    DataLife0()
-   {
-       width =5;
-        height=5;
-       centerX=2;
-        centerY=5;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=0;
-        indices[2]=255;
-        indices[3]=0;
-        indices[4]=255;
-        indices[5]=0;
-        indices[6]=0;
-        indices[7]=0;
-        indices[8]=0;
-        indices[9]=0;
-        indices[10]=0;
-        indices[11]=0;
-        indices[12]=0;
-        indices[13]=0;
-        indices[14]=0;
-        indices[15]=255;
-        indices[16]=0;
-        indices[17]=0;
-        indices[18]=0;
-        indices[19]=255;
-        indices[20]=255;
-        indices[21]=255;
-        indices[22]=0;
-        indices[23]=255;
-        indices[24]=255;
-        color= new uint8_t[4];
-        color[0] =156;
-        color[1] =156;
-        color[2] =156;
-        color[3] =255;
-   };
+namespace _Life0_ {
+    const uint8_t indices[25] = {
+        255
+        ,0
+        ,255
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+    };
+    const uint8_t color[4] = {
+        156
+        ,156
+        ,156
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataLife0 : public PixelDataImpl<DataLife0<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 5; }
+       static constexpr uint8_t height() { return 5; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Life0_::indices; }
+       static constexpr const uint8_t* color() { return _Life0_::color; }
+       constexpr DataLife0(){}
 };
 #endif

@@ -2,153 +2,156 @@
 #ifndef _DataCloud1_h
 #define _DataCloud1_h
 #include "PixelData.h"
-class DataCloud1:public PixelData{ 
-public:
-    DataCloud1()
-   {
-       width =24;
-        height=5;
-       centerX=12;
-        centerY=5;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=255;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=0;
-        indices[10]=0;
-        indices[11]=0;
-        indices[12]=0;
-        indices[13]=255;
-        indices[14]=255;
-        indices[15]=255;
-        indices[16]=255;
-        indices[17]=255;
-        indices[18]=255;
-        indices[19]=255;
-        indices[20]=255;
-        indices[21]=255;
-        indices[22]=255;
-        indices[23]=255;
-        indices[24]=255;
-        indices[25]=255;
-        indices[26]=255;
-        indices[27]=255;
-        indices[28]=255;
-        indices[29]=255;
-        indices[30]=255;
-        indices[31]=255;
-        indices[32]=0;
-        indices[33]=4;
-        indices[34]=4;
-        indices[35]=4;
-        indices[36]=4;
-        indices[37]=4;
-        indices[38]=4;
-        indices[39]=8;
-        indices[40]=12;
-        indices[41]=255;
-        indices[42]=255;
-        indices[43]=255;
-        indices[44]=255;
-        indices[45]=255;
-        indices[46]=255;
-        indices[47]=255;
-        indices[48]=255;
-        indices[49]=255;
-        indices[50]=255;
-        indices[51]=255;
-        indices[52]=255;
-        indices[53]=0;
-        indices[54]=0;
-        indices[55]=4;
-        indices[56]=4;
-        indices[57]=4;
-        indices[58]=4;
-        indices[59]=4;
-        indices[60]=4;
-        indices[61]=4;
-        indices[62]=4;
-        indices[63]=4;
-        indices[64]=4;
-        indices[65]=4;
-        indices[66]=12;
-        indices[67]=255;
-        indices[68]=255;
-        indices[69]=255;
-        indices[70]=255;
-        indices[71]=255;
-        indices[72]=255;
-        indices[73]=255;
-        indices[74]=255;
-        indices[75]=0;
-        indices[76]=4;
-        indices[77]=4;
-        indices[78]=4;
-        indices[79]=4;
-        indices[80]=4;
-        indices[81]=4;
-        indices[82]=4;
-        indices[83]=4;
-        indices[84]=4;
-        indices[85]=4;
-        indices[86]=8;
-        indices[87]=8;
-        indices[88]=8;
-        indices[89]=8;
-        indices[90]=8;
-        indices[91]=12;
-        indices[92]=255;
-        indices[93]=255;
-        indices[94]=255;
-        indices[95]=255;
-        indices[96]=4;
-        indices[97]=4;
-        indices[98]=4;
-        indices[99]=4;
-        indices[100]=4;
-        indices[101]=4;
-        indices[102]=4;
-        indices[103]=4;
-        indices[104]=8;
-        indices[105]=8;
-        indices[106]=8;
-        indices[107]=8;
-        indices[108]=8;
-        indices[109]=8;
-        indices[110]=8;
-        indices[111]=12;
-        indices[112]=12;
-        indices[113]=12;
-        indices[114]=12;
-        indices[115]=12;
-        indices[116]=12;
-        indices[117]=12;
-        indices[118]=12;
-        indices[119]=12;
-        color= new uint8_t[16];
-        color[0] =255;
-        color[1] =252;
-        color[2] =245;
-        color[3] =255;
-        color[4] =252;
-        color[5] =242;
-        color[6] =242;
-        color[7] =255;
-        color[8] =238;
-        color[9] =231;
-        color[10] =241;
-        color[11] =255;
-        color[12] =225;
-        color[13] =218;
-        color[14] =229;
-        color[15] =255;
-   };
+namespace _Cloud1_ {
+    const uint8_t indices[120] = {
+        255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,8
+        ,12
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,12
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,12
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,12
+        ,12
+        ,12
+        ,12
+        ,12
+        ,12
+        ,12
+        ,12
+        ,12
+    };
+    const uint8_t color[16] = {
+        255
+        ,252
+        ,245
+        ,255
+        ,252
+        ,242
+        ,242
+        ,255
+        ,238
+        ,231
+        ,241
+        ,255
+        ,225
+        ,218
+        ,229
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataCloud1 : public PixelDataImpl<DataCloud1<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 24; }
+       static constexpr uint8_t height() { return 5; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Cloud1_::indices; }
+       static constexpr const uint8_t* color() { return _Cloud1_::color; }
+       constexpr DataCloud1(){}
 };
 #endif

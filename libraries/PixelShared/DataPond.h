@@ -2,242 +2,245 @@
 #ifndef _DataPond_h
 #define _DataPond_h
 #include "PixelData.h"
-class DataPond:public PixelData{ 
-public:
-    DataPond()
-   {
-       width =17;
-        height=9;
-       centerX=8;
-        centerY=9;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=255;
-        indices[3]=255;
-        indices[4]=255;
-        indices[5]=0;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=255;
-        indices[10]=255;
-        indices[11]=255;
-        indices[12]=255;
-        indices[13]=255;
-        indices[14]=255;
-        indices[15]=255;
-        indices[16]=255;
-        indices[17]=255;
-        indices[18]=255;
-        indices[19]=255;
-        indices[20]=255;
-        indices[21]=255;
-        indices[22]=0;
-        indices[23]=255;
-        indices[24]=255;
-        indices[25]=255;
-        indices[26]=255;
-        indices[27]=255;
-        indices[28]=0;
-        indices[29]=255;
-        indices[30]=0;
-        indices[31]=255;
-        indices[32]=255;
-        indices[33]=255;
-        indices[34]=255;
-        indices[35]=255;
-        indices[36]=255;
-        indices[37]=255;
-        indices[38]=255;
-        indices[39]=4;
-        indices[40]=255;
-        indices[41]=255;
-        indices[42]=255;
-        indices[43]=255;
-        indices[44]=255;
-        indices[45]=0;
-        indices[46]=255;
-        indices[47]=0;
-        indices[48]=255;
-        indices[49]=255;
-        indices[50]=255;
-        indices[51]=255;
-        indices[52]=255;
-        indices[53]=255;
-        indices[54]=255;
-        indices[55]=255;
-        indices[56]=4;
-        indices[57]=8;
-        indices[58]=12;
-        indices[59]=16;
-        indices[60]=20;
-        indices[61]=24;
-        indices[62]=4;
-        indices[63]=255;
-        indices[64]=4;
-        indices[65]=255;
-        indices[66]=255;
-        indices[67]=255;
-        indices[68]=255;
-        indices[69]=255;
-        indices[70]=255;
-        indices[71]=8;
-        indices[72]=8;
-        indices[73]=8;
-        indices[74]=28;
-        indices[75]=32;
-        indices[76]=32;
-        indices[77]=32;
-        indices[78]=36;
-        indices[79]=4;
-        indices[80]=24;
-        indices[81]=4;
-        indices[82]=255;
-        indices[83]=255;
-        indices[84]=255;
-        indices[85]=255;
-        indices[86]=8;
-        indices[87]=8;
-        indices[88]=40;
-        indices[89]=32;
-        indices[90]=32;
-        indices[91]=44;
-        indices[92]=48;
-        indices[93]=52;
-        indices[94]=52;
-        indices[95]=56;
-        indices[96]=44;
-        indices[97]=32;
-        indices[98]=36;
-        indices[99]=24;
-        indices[100]=24;
-        indices[101]=255;
-        indices[102]=8;
-        indices[103]=60;
-        indices[104]=32;
-        indices[105]=32;
-        indices[106]=32;
-        indices[107]=32;
-        indices[108]=32;
-        indices[109]=32;
-        indices[110]=32;
-        indices[111]=32;
-        indices[112]=32;
-        indices[113]=32;
-        indices[114]=44;
-        indices[115]=32;
-        indices[116]=32;
-        indices[117]=64;
-        indices[118]=24;
-        indices[119]=8;
-        indices[120]=32;
-        indices[121]=32;
-        indices[122]=36;
-        indices[123]=24;
-        indices[124]=24;
-        indices[125]=68;
-        indices[126]=32;
-        indices[127]=36;
-        indices[128]=32;
-        indices[129]=24;
-        indices[130]=24;
-        indices[131]=36;
-        indices[132]=32;
-        indices[133]=36;
-        indices[134]=24;
-        indices[135]=255;
-        indices[136]=255;
-        indices[137]=8;
-        indices[138]=32;
-        indices[139]=32;
-        indices[140]=32;
-        indices[141]=32;
-        indices[142]=32;
-        indices[143]=32;
-        indices[144]=32;
-        indices[145]=32;
-        indices[146]=32;
-        indices[147]=32;
-        indices[148]=32;
-        indices[149]=36;
-        indices[150]=24;
-        indices[151]=255;
-        indices[152]=255;
-        color= new uint8_t[72];
-        color[0] =96;
-        color[1] =35;
-        color[2] =8;
-        color[3] =255;
-        color[4] =100;
-        color[5] =184;
-        color[6] =11;
-        color[7] =255;
-        color[8] =84;
-        color[9] =141;
-        color[10] =162;
-        color[11] =255;
-        color[12] =93;
-        color[13] =167;
-        color[14] =192;
-        color[15] =255;
-        color[16] =102;
-        color[17] =171;
-        color[18] =195;
-        color[19] =255;
-        color[20] =128;
-        color[21] =192;
-        color[22] =213;
-        color[23] =255;
-        color[24] =165;
-        color[25] =212;
-        color[26] =228;
-        color[27] =255;
-        color[28] =104;
-        color[29] =205;
-        color[30] =237;
-        color[31] =255;
-        color[32] =103;
-        color[33] =202;
-        color[34] =234;
-        color[35] =255;
-        color[36] =100;
-        color[37] =201;
-        color[38] =234;
-        color[39] =255;
-        color[40] =102;
-        color[41] =204;
-        color[42] =237;
-        color[43] =255;
-        color[44] =102;
-        color[45] =202;
-        color[46] =234;
-        color[47] =255;
-        color[48] =110;
-        color[49] =203;
-        color[50] =233;
-        color[51] =255;
-        color[52] =180;
-        color[53] =231;
-        color[54] =248;
-        color[55] =255;
-        color[56] =108;
-        color[57] =203;
-        color[58] =234;
-        color[59] =255;
-        color[60] =103;
-        color[61] =204;
-        color[62] =236;
-        color[63] =255;
-        color[64] =98;
-        color[65] =201;
-        color[66] =234;
-        color[67] =255;
-        color[68] =99;
-        color[69] =201;
-        color[70] =234;
-        color[71] =255;
-   };
+namespace _Pond_ {
+    const uint8_t indices[153] = {
+        255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,8
+        ,12
+        ,16
+        ,20
+        ,24
+        ,4
+        ,255
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,8
+        ,28
+        ,32
+        ,32
+        ,32
+        ,36
+        ,4
+        ,24
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,40
+        ,32
+        ,32
+        ,44
+        ,48
+        ,52
+        ,52
+        ,56
+        ,44
+        ,32
+        ,36
+        ,24
+        ,24
+        ,255
+        ,8
+        ,60
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,44
+        ,32
+        ,32
+        ,64
+        ,24
+        ,8
+        ,32
+        ,32
+        ,36
+        ,24
+        ,24
+        ,68
+        ,32
+        ,36
+        ,32
+        ,24
+        ,24
+        ,36
+        ,32
+        ,36
+        ,24
+        ,255
+        ,255
+        ,8
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,32
+        ,36
+        ,24
+        ,255
+        ,255
+    };
+    const uint8_t color[72] = {
+        96
+        ,35
+        ,8
+        ,255
+        ,100
+        ,184
+        ,11
+        ,255
+        ,84
+        ,141
+        ,162
+        ,255
+        ,93
+        ,167
+        ,192
+        ,255
+        ,102
+        ,171
+        ,195
+        ,255
+        ,128
+        ,192
+        ,213
+        ,255
+        ,165
+        ,212
+        ,228
+        ,255
+        ,104
+        ,205
+        ,237
+        ,255
+        ,103
+        ,202
+        ,234
+        ,255
+        ,100
+        ,201
+        ,234
+        ,255
+        ,102
+        ,204
+        ,237
+        ,255
+        ,102
+        ,202
+        ,234
+        ,255
+        ,110
+        ,203
+        ,233
+        ,255
+        ,180
+        ,231
+        ,248
+        ,255
+        ,108
+        ,203
+        ,234
+        ,255
+        ,103
+        ,204
+        ,236
+        ,255
+        ,98
+        ,201
+        ,234
+        ,255
+        ,99
+        ,201
+        ,234
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataPond : public PixelDataImpl<DataPond<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 17; }
+       static constexpr uint8_t height() { return 9; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _Pond_::indices; }
+       static constexpr const uint8_t* color() { return _Pond_::color; }
+       constexpr DataPond(){}
 };
 #endif

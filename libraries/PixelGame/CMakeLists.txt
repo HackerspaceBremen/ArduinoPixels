@@ -10,11 +10,13 @@ project(PixelGame)
 
 set(SRC
     NeopixelPixelRenderer.cpp
+    NeuroPixelRenderer.cpp
     SDLPixelRenderer.cpp
 )
 
 set(HDR
     NeopixelPixelRenderer.h
+    NeuroPixelRenderer.h
     PixelGameInclude.h
     PixelRenderer.h
     SDLPixelRenderer.h

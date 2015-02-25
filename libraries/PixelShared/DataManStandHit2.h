@@ -2,109 +2,112 @@
 #ifndef _DataManStandHit2_h
 #define _DataManStandHit2_h
 #include "PixelData.h"
-class DataManStandHit2:public PixelData{ 
-public:
-    DataManStandHit2()
-   {
-       width =8;
-        height=10;
-       centerX=4;
-        centerY=10;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=0;
-        indices[2]=0;
-        indices[3]=0;
-        indices[4]=0;
-        indices[5]=255;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=255;
-        indices[9]=0;
-        indices[10]=0;
-        indices[11]=0;
-        indices[12]=0;
-        indices[13]=255;
-        indices[14]=255;
-        indices[15]=255;
-        indices[16]=0;
-        indices[17]=0;
-        indices[18]=0;
-        indices[19]=0;
-        indices[20]=0;
-        indices[21]=0;
-        indices[22]=255;
-        indices[23]=255;
-        indices[24]=255;
-        indices[25]=4;
-        indices[26]=4;
-        indices[27]=4;
-        indices[28]=4;
-        indices[29]=255;
-        indices[30]=255;
-        indices[31]=255;
-        indices[32]=255;
-        indices[33]=4;
-        indices[34]=0;
-        indices[35]=4;
-        indices[36]=0;
-        indices[37]=255;
-        indices[38]=255;
-        indices[39]=255;
-        indices[40]=255;
-        indices[41]=4;
-        indices[42]=4;
-        indices[43]=4;
-        indices[44]=4;
-        indices[45]=255;
-        indices[46]=255;
-        indices[47]=255;
-        indices[48]=255;
-        indices[49]=8;
-        indices[50]=8;
-        indices[51]=8;
-        indices[52]=8;
-        indices[53]=4;
-        indices[54]=255;
-        indices[55]=255;
-        indices[56]=255;
-        indices[57]=8;
-        indices[58]=8;
-        indices[59]=8;
-        indices[60]=8;
-        indices[61]=8;
-        indices[62]=8;
-        indices[63]=4;
-        indices[64]=255;
-        indices[65]=0;
-        indices[66]=0;
-        indices[67]=0;
-        indices[68]=0;
-        indices[69]=255;
-        indices[70]=255;
-        indices[71]=255;
-        indices[72]=0;
-        indices[73]=255;
-        indices[74]=255;
-        indices[75]=255;
-        indices[76]=0;
-        indices[77]=255;
-        indices[78]=255;
-        indices[79]=255;
-        color= new uint8_t[12];
-        color[0] =0;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-        color[4] =255;
-        color[5] =198;
-        color[6] =135;
-        color[7] =255;
-        color[8] =34;
-        color[9] =59;
-        color[10] =169;
-        color[11] =255;
-   };
+namespace _ManStandHit2_ {
+    const uint8_t indices[80] = {
+        255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,0
+        ,4
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,8
+        ,8
+        ,4
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,8
+        ,4
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+    };
+    const uint8_t color[12] = {
+        0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,198
+        ,135
+        ,255
+        ,34
+        ,59
+        ,169
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataManStandHit2 : public PixelDataImpl<DataManStandHit2<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 8; }
+       static constexpr uint8_t height() { return 10; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _ManStandHit2_::indices; }
+       static constexpr const uint8_t* color() { return _ManStandHit2_::color; }
+       constexpr DataManStandHit2(){}
 };
 #endif

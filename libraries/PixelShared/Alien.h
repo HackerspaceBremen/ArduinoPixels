@@ -13,29 +13,19 @@
 class Alien :public Live
 {
 public:
-    Alien(){hasHitRect =true; isDead =false;};
-      virtual void setDead()
+    float fxStart;
+    bool isDead;
+
+    Alien() : isDead(false) { hasHitRect =true; }
+    virtual void setDead()
     {
-        
         isDead =true;
-    };
-    virtual void reset()
-    {
-        
-        
     }
-   virtual void update(float timeElapsed)
-    {
-    
-    
-    }
+    virtual void update(float /*timeElapsed*/) = 0;
     void setLevelPos(float levelfx)
     {
         fx =  fxReal-levelfx;
-        
     }
-    float fxStart;
-    bool isDead;
 };
 
 

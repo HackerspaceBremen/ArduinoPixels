@@ -2,41 +2,44 @@
 #ifndef _DataBackGrass_h
 #define _DataBackGrass_h
 #include "PixelData.h"
-class DataBackGrass:public PixelData{ 
-public:
-    DataBackGrass()
-   {
-       width =1;
-        height=16;
-       centerX=0;
-        centerY=16;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=0;
-        indices[1]=0;
-        indices[2]=0;
-        indices[3]=0;
-        indices[4]=0;
-        indices[5]=0;
-        indices[6]=4;
-        indices[7]=4;
-        indices[8]=4;
-        indices[9]=4;
-        indices[10]=4;
-        indices[11]=4;
-        indices[12]=4;
-        indices[13]=4;
-        indices[14]=4;
-        indices[15]=4;
-        color= new uint8_t[8];
-        color[0] =136;
-        color[1] =199;
-        color[2] =228;
-        color[3] =255;
-        color[4] =82;
-        color[5] =117;
-        color[6] =94;
-        color[7] =255;
-   };
+namespace _BackGrass_ {
+    const uint8_t indices[16] = {
+        0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+        ,4
+    };
+    const uint8_t color[8] = {
+        136
+        ,199
+        ,228
+        ,255
+        ,82
+        ,117
+        ,94
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataBackGrass : public PixelDataImpl<DataBackGrass<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 1; }
+       static constexpr uint8_t height() { return 16; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _BackGrass_::indices; }
+       static constexpr const uint8_t* color() { return _BackGrass_::color; }
+       constexpr DataBackGrass(){}
 };
 #endif

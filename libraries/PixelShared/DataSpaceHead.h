@@ -2,101 +2,104 @@
 #ifndef _DataSpaceHead_h
 #define _DataSpaceHead_h
 #include "PixelData.h"
-class DataSpaceHead:public PixelData{ 
-public:
-    DataSpaceHead()
-   {
-       width =7;
-        height=8;
-       centerX=3;
-        centerY=8;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=255;
-        indices[2]=0;
-        indices[3]=4;
-        indices[4]=0;
-        indices[5]=255;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=0;
-        indices[9]=8;
-        indices[10]=4;
-        indices[11]=0;
-        indices[12]=0;
-        indices[13]=255;
-        indices[14]=0;
-        indices[15]=12;
-        indices[16]=0;
-        indices[17]=0;
-        indices[18]=0;
-        indices[19]=0;
-        indices[20]=0;
-        indices[21]=16;
-        indices[22]=16;
-        indices[23]=16;
-        indices[24]=16;
-        indices[25]=16;
-        indices[26]=16;
-        indices[27]=16;
-        indices[28]=16;
-        indices[29]=20;
-        indices[30]=20;
-        indices[31]=20;
-        indices[32]=20;
-        indices[33]=20;
-        indices[34]=16;
-        indices[35]=16;
-        indices[36]=24;
-        indices[37]=20;
-        indices[38]=24;
-        indices[39]=20;
-        indices[40]=24;
-        indices[41]=16;
-        indices[42]=16;
-        indices[43]=20;
-        indices[44]=20;
-        indices[45]=20;
-        indices[46]=20;
-        indices[47]=20;
-        indices[48]=16;
-        indices[49]=16;
-        indices[50]=16;
-        indices[51]=16;
-        indices[52]=16;
-        indices[53]=16;
-        indices[54]=16;
-        indices[55]=16;
-        color= new uint8_t[28];
-        color[0] =255;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-        color[4] =255;
-        color[5] =62;
-        color[6] =32;
-        color[7] =255;
-        color[8] =255;
-        color[9] =96;
-        color[10] =50;
-        color[11] =255;
-        color[12] =255;
-        color[13] =82;
-        color[14] =40;
-        color[15] =255;
-        color[16] =141;
-        color[17] =198;
-        color[18] =63;
-        color[19] =255;
-        color[20] =255;
-        color[21] =255;
-        color[22] =255;
-        color[23] =255;
-        color[24] =0;
-        color[25] =0;
-        color[26] =0;
-        color[27] =255;
-   };
+namespace _SpaceHead_ {
+    const uint8_t indices[56] = {
+        255
+        ,255
+        ,0
+        ,4
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,8
+        ,4
+        ,0
+        ,0
+        ,255
+        ,0
+        ,12
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,20
+        ,20
+        ,20
+        ,20
+        ,20
+        ,16
+        ,16
+        ,24
+        ,20
+        ,24
+        ,20
+        ,24
+        ,16
+        ,16
+        ,20
+        ,20
+        ,20
+        ,20
+        ,20
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+        ,16
+    };
+    const uint8_t color[28] = {
+        255
+        ,0
+        ,0
+        ,255
+        ,255
+        ,62
+        ,32
+        ,255
+        ,255
+        ,96
+        ,50
+        ,255
+        ,255
+        ,82
+        ,40
+        ,255
+        ,141
+        ,198
+        ,63
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataSpaceHead : public PixelDataImpl<DataSpaceHead<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 7; }
+       static constexpr uint8_t height() { return 8; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _SpaceHead_::indices; }
+       static constexpr const uint8_t* color() { return _SpaceHead_::color; }
+       constexpr DataSpaceHead(){}
 };
 #endif

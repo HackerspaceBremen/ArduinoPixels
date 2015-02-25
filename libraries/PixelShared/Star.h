@@ -9,8 +9,16 @@
 #ifndef PixelGameLocal_Star_h
 #define PixelGameLocal_Star_h
 #include "Sprite.h"
+#include "DataStarBig.h"
+#include "DataStarSmall.h"
+
 class Star: public Sprite
 {
+    float sx;
+    float sy;
+    float maxTime;
+    const DataStarSmall<> dataSmall;
+    const DataStarBig<> dataBig;
 
 public:
     Star(){}
@@ -18,10 +26,10 @@ public:
     {
         if (rand()%100==0)
         {
-            currentData = dataBig;
+            currentData = &dataBig;
         }else
         {
-            currentData = dataSmall;
+            currentData = &dataSmall;
         
         }
         fx =rand()%20+35;
@@ -33,7 +41,7 @@ public:
         
         maxTime =3+(float) (rand()%100)/10;
     
-    };
+    }
     void update(float timeElapsed)
     {
         
@@ -45,14 +53,7 @@ public:
         fy+=sy*timeElapsed;
         maxTime-=timeElapsed;
         if(maxTime<0)randomize();
-    
-    
-    };
-    float sx;
-    float sy;
-    float maxTime;
-    PixelData * dataSmall;
-    PixelData * dataBig;
+    }
 };
 
 #endif

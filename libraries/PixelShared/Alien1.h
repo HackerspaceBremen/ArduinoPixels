@@ -10,35 +10,42 @@
 #define PixelGameLocal_Alien1_h
 #include "Alien.h"
 
+#include "DataAlien1Head.h"
+#include "DataAlien1Feed.h"
+
 class Alien1 : public Alien
 {
-
+    const DataAlien1Feed<> feet;
+    const DataAlien1Head<> head;
+    Sprite headSprite;
+    Sprite feetSprite;
+    float shootTime ;
+    float currentTime;
 
 public:
-    Alien1(){};
+    Alien1() : shootTime(0) { }
     void setup(){
       
         heroType=2;
-        headSprite = new Sprite();
-        feetSprite = new Sprite();
-          addChild(feetSprite);
-        addChild(headSprite);
+        headSprite.currentData = &head;
+        feetSprite.currentData = &feet;
+        addChild(&feetSprite);
+        addChild(&headSprite);
         life =1;
-        headSprite->fy =-3;
+        headSprite.fy =-3;
         currentTime =0+(float)rand()/RAND_MAX;
-        shootTime  =0;
         fxStart =fxReal;
         
     }
-    virtual void reset()
+    virtual void resetImpl() override
     {
         fxReal =fxStart;
         isDead =false;
-          life =1;
+        life =1;
         fy =15;
         saveTime =-1;
     }
-    void update(float timeElapsed)
+    virtual void update(float timeElapsed) override
     {
         if(intHidden)return;
         if(isDead)
@@ -60,20 +67,15 @@ public:
       
             currentTime +=timeElapsed;
         
-            headSprite->fy  =-4+  sin(currentTime*4)*1.5;
+            headSprite.fy  =-4+  sin(currentTime*4)*1.5;
             fy  =14 +  sin(currentTime*4-1)*2;
             hitRect.x  =-3;
-            hitRect.y =-4+headSprite->fy;
+            hitRect.y =-4+headSprite.fy;
         
             hitRect.width  =5;
-            hitRect.height =3-headSprite->fy;
+            hitRect.height =3-headSprite.fy;
         }
     }
-
-    Sprite * headSprite ;
-    Sprite *feetSprite;
-    float shootTime ;
-    float currentTime;
 };
 
 

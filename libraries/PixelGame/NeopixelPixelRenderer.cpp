@@ -8,14 +8,10 @@
 
 #ifdef ARDUINO
 
+#include <Adafruit_NeoMatrix.h>
 #include "NeopixelPixelRenderer.h"
 
-NeopixelPixelRenderer::NeopixelPixelRenderer()
-{
-
-}
-
-void NeopixelPixelRenderer::setBrightness(int br)
+void NeopixelPixelRenderer::setBrightness(uint8_t br)
 {
 	pixels->setBrightness(br);
 }

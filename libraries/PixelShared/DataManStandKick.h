@@ -2,99 +2,102 @@
 #ifndef _DataManStandKick_h
 #define _DataManStandKick_h
 #include "PixelData.h"
-class DataManStandKick:public PixelData{ 
-public:
-    DataManStandKick()
-   {
-       width =7;
-        height=10;
-       centerX=3;
-        centerY=10;
-        int size =width*height;
-        indices= new uint8_t[size];
-        indices[0]=255;
-        indices[1]=0;
-        indices[2]=0;
-        indices[3]=0;
-        indices[4]=0;
-        indices[5]=255;
-        indices[6]=255;
-        indices[7]=255;
-        indices[8]=0;
-        indices[9]=0;
-        indices[10]=0;
-        indices[11]=0;
-        indices[12]=255;
-        indices[13]=255;
-        indices[14]=0;
-        indices[15]=0;
-        indices[16]=0;
-        indices[17]=0;
-        indices[18]=0;
-        indices[19]=0;
-        indices[20]=255;
-        indices[21]=255;
-        indices[22]=4;
-        indices[23]=4;
-        indices[24]=4;
-        indices[25]=4;
-        indices[26]=255;
-        indices[27]=255;
-        indices[28]=255;
-        indices[29]=4;
-        indices[30]=0;
-        indices[31]=4;
-        indices[32]=0;
-        indices[33]=255;
-        indices[34]=255;
-        indices[35]=255;
-        indices[36]=4;
-        indices[37]=4;
-        indices[38]=4;
-        indices[39]=4;
-        indices[40]=255;
-        indices[41]=255;
-        indices[42]=255;
-        indices[43]=8;
-        indices[44]=8;
-        indices[45]=8;
-        indices[46]=8;
-        indices[47]=255;
-        indices[48]=255;
-        indices[49]=4;
-        indices[50]=8;
-        indices[51]=8;
-        indices[52]=4;
-        indices[53]=8;
-        indices[54]=255;
-        indices[55]=255;
-        indices[56]=255;
-        indices[57]=0;
-        indices[58]=0;
-        indices[59]=0;
-        indices[60]=0;
-        indices[61]=0;
-        indices[62]=0;
-        indices[63]=255;
-        indices[64]=0;
-        indices[65]=255;
-        indices[66]=255;
-        indices[67]=255;
-        indices[68]=255;
-        indices[69]=255;
-        color= new uint8_t[12];
-        color[0] =0;
-        color[1] =0;
-        color[2] =0;
-        color[3] =255;
-        color[4] =255;
-        color[5] =198;
-        color[6] =135;
-        color[7] =255;
-        color[8] =34;
-        color[9] =59;
-        color[10] =169;
-        color[11] =255;
-   };
+namespace _ManStandKick_ {
+    const uint8_t indices[70] = {
+        255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,4
+        ,0
+        ,4
+        ,0
+        ,255
+        ,255
+        ,255
+        ,4
+        ,4
+        ,4
+        ,4
+        ,255
+        ,255
+        ,255
+        ,8
+        ,8
+        ,8
+        ,8
+        ,255
+        ,255
+        ,4
+        ,8
+        ,8
+        ,4
+        ,8
+        ,255
+        ,255
+        ,255
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,0
+        ,255
+        ,0
+        ,255
+        ,255
+        ,255
+        ,255
+        ,255
+    };
+    const uint8_t color[12] = {
+        0
+        ,0
+        ,0
+        ,255
+        ,255
+        ,198
+        ,135
+        ,255
+        ,34
+        ,59
+        ,169
+        ,255
+    };
+}
+template<int8_t WidthOffset=0, int8_t HeightOffset=0>
+struct DataManStandKick : public PixelDataImpl<DataManStandKick<WidthOffset, HeightOffset> > {
+       static constexpr uint8_t width() { return 7; }
+       static constexpr uint8_t height() { return 10; }
+       static constexpr int8_t widthOffset() { return WidthOffset; }
+       static constexpr int8_t heightOffset() { return HeightOffset; }
+       static constexpr const uint8_t* indices() { return _ManStandKick_::indices; }
+       static constexpr const uint8_t* color() { return _ManStandKick_::color; }
+       constexpr DataManStandKick(){}
 };
 #endif

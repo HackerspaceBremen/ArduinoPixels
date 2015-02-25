@@ -11,14 +11,22 @@
 
 #include "Sprite.h"
 #include "PixelData.h"
+
+#include "DataSplash1.h"
+#include "DataSplash2.h"
+
 class WaterSplash :public Sprite
 {
-    
+    const DataSplash1<> splash1;
+    const DataSplash2<> splash2;
+
+    float time;
+    const PixelData * frame1;
+    const PixelData * frame2;
     
 public:
-    WaterSplash()
+    WaterSplash() : frame1(&splash1), frame2(&splash2)
     {
-        
         visible =false;
     }
     void show(float _fxReal)
@@ -39,9 +47,6 @@ public:
         if(time>0.6)visible=false;
     
     }
-    float time;
-    PixelData * frame1;
-        PixelData * frame2;
 };
 
 

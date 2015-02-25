@@ -10,49 +10,49 @@
 #define PixelGameLocal_Alien3_h
 
 #include "Alien.h"
+#include "DataSpaceArmL.h"
+#include "DataSpaceArmR.h"
+#include "DataSpaceHead.h"
+#include "DataSpaceBottem.h"
+
+const DataSpaceArmL<> dataArmL;
+const DataSpaceArmR<> dataArmR;
+const DataSpaceBottem<> dataBottom;
+const DataSpaceHead<> dataHead;
 
 class Alien3: public Alien
 {
-    
-    
+    float waitshoot;
+    float posTime;
+    Sprite head;
+    Sprite ship;
+    Sprite armL;
+    Sprite armR;
+
 public:
-    Alien3(){};
+    Alien3() : waitshoot(0), posTime(0) {}
     void setup(){
         
         heroType=4;
-       
-        waitshoot =0;
-        armL =new Sprite();
-        armL->currentData = new DataSpaceArmL();
-        addChild(armL);
-            
-            armR =new Sprite();
-            armR->currentData = new DataSpaceArmR();
-            addChild(armR);
-            
-            
-            head =new Sprite();
-            head->currentData =new DataSpaceHead();
-            //head->fy =-4;
-            head->fy =-1;
-            addChild(head);
-            
-            
-            
-            
-            
-            
-            ship= new Sprite();
-            ship->currentData =new DataSpaceBottem();
-            addChild(ship);
-            //ship->fy =3;
-            ship->fy =1;
-            headTime =0;
-            
-        posTime=0;
+
+        armL.currentData = &dataArmL;
+        addChild(&armL);
+
+        armR.currentData = &dataArmR;
+        addChild(&armR);
+
+        head.currentData = &dataHead;
+        //head.fy =-4;
+        head.fy =-1;
+        addChild(&head);
+
+        ship.currentData = &dataBottom;
+        addChild(&ship);
+        //ship.fy =3;
+        ship.fy =1;
+
         fxStart =fx;
-        
-        
+
         hitRect.x  =-8;
         hitRect.y =-7;
         
@@ -60,19 +60,19 @@ public:
         hitRect.height =7;
         life=3;
         
-        };
+        }
     
-    virtual void reset()
+    virtual void resetImpl() override
     {
         fxReal =fxStart;
         isDead =false;
         life =3;
         fy =15;
-         saveTime =-1;
+        saveTime =-1;
     }
        
     float fxStart;
-    void update(float timeElapsed)
+    virtual void update(float timeElapsed) override
     {
         
      
@@ -92,7 +92,7 @@ public:
         if(posTime>16  )posTime =0;
         if(posTime>0 && posTime<=2)
         {
-            //  ship->fy  =cubicEaseOut(posTime,1 , 2, 2);
+            //  ship.fy  =cubicEaseOut(posTime,1 , 2, 2);
             fxReal = cubicEaseInOut(posTime,20 , -40, 2)+fxStart;
             if(posTime<=1)
             {
@@ -128,89 +128,19 @@ public:
         if(posTime>2&& posTime<=8)showHead(posTime-2);
         if(posTime>10&& posTime<=16)showHead(posTime-10);
         waitshoot-=timeElapsed;
-               /*
-        if(headTime<0.5 )
-        {
-            head->fy  =backEaseOut(headTime,-2 , -2, 0.5);
-            ship->fy  =backEaseOut(headTime,1 , 2, 0.5);
-            
-        }else if(headTime>0.5 && headTime <1)
-        {
-            float armTime = headTime-0.5;
-            armR->fx   =cubicEaseOut( armTime,0 ,5, 0.5);
-            armL->fx   =cubicEaseOut( armTime,1 ,-5, 0.5);
-                       
-        }
-        else  if(headTime>1.5 && headTime<3 )
-        {
-            int armTimeInt = (headTime-1.5)*5;
-            
-            if( armTimeInt%2==0)
-            {
-                armR->drawType =1;
-                armL->drawType =1;
-                armR->fx   = -4;
-                armL->fx =5;
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
-                
-            }else
-            {
-                
-                armR->fx   = 5;
-                armL->fx = -4;
-                armR->drawType =0;
-                armL->drawType =0;
-                
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
-                
-                
-            }
-            
-            
-        }
-        else  if(headTime>4 && headTime<4.5 )
-        {
-            float armTime = headTime-4;
-            
-            armR->fx   =cubicEaseOut( armTime,5 ,-5,0.5);
-            armL->fx   =cubicEaseOut( armTime,-4 ,5, 0.5);
-            head->fy  =cubicEaseOut(armTime,-4 , 2.1, 0.5);
-            ship->fy  =cubicEaseOut(armTime ,3, -2,0.5);
-            
-            
-        }else
-        {
-            
-                          ship->fy =1;
-            head->fy =-2;
-            armR->fx=0;
-            armL->fx=0;
-            armR->fy =head->fy-2;
-            armL->fy =head->fy-2;
-            
-          
-        }
-        
-        headTime+=timeElapsed;
-        
-        if(headTime>6)headTime=0;*/
     }
     void showHead(float headTime)
     {
         if(headTime<=0.3 )
         {
-            head->fy  =cubicEaseOut(headTime,-2 , -2, 0.3);
+            head.fy  =cubicEaseOut(headTime,-2 , -2, 0.3);
                      
         }else if(headTime>5.7 && headTime <=6)
         {
-            head->fy  =cubicEaseOut(headTime-5.7,-4 ,3, 0.3);
-        
-            
+            head.fy  =cubicEaseOut(headTime-5.7,-4 ,3, 0.3);
         }else
         {
-            head->fy=-5;
+            head.fy=-5;
         }
         if(headTime>1.5 && headTime<5 )
         {
@@ -218,12 +148,12 @@ public:
             
             if( armTimeInt%2==0)
             {
-                armR->drawType =1;
-                armL->drawType =1;
-                armR->fx   = -4;
-                armL->fx =5;
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
+                armR.drawType =1;
+                armL.drawType =1;
+                armR.fx   = -4;
+                armL.fx =5;
+                armR.fy =head.fy-1;
+                armL.fy =head.fy-2;
                 
             }else
             {
@@ -233,38 +163,29 @@ public:
                     else drawType =1;
                startShoot =true;
                 }
-                armR->fx   = 5;
-                armL->fx = -4;
-                armR->drawType =0;
-                armL->drawType =0;
+                armR.fx   = 5;
+                armL.fx = -4;
+                armR.drawType =0;
+                armL.drawType =0;
                 
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
+                armR.fy =head.fy-1;
+                armL.fy =head.fy-2;
                 
                 
             }
-            armR->visible  =true;
-            armL->visible  =true;
+            armR.visible  =true;
+            armL.visible  =true;
 
             
         }else
         {
-            armR->visible  =false;
-            armL->visible  =false;
+            armR.visible  =false;
+            armL.visible  =false;
         }
 
     
     
     }
-    float waitshoot;
-    float posTime;
-    float headTime;
-    Sprite *head;
-    Sprite *ship;
-    Sprite *armL;
-    Sprite *armR;
-
-    
 };
 
 

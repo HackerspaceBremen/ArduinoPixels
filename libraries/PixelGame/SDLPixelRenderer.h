@@ -17,20 +17,21 @@ public:
 	SDLPixelRenderer(unsigned int width, unsigned int height, unsigned int scale = 10);
 	virtual ~SDLPixelRenderer();
 
-	void setup();
+    virtual void setup() override;
 
-    void draw();
+    virtual void draw() override;
 
-    void setPixel(int x,int y,uint8_t r, uint8_t g , uint8_t b, uint8_t a);
+    virtual void setPixel(int x, int y, uint8_t r, uint8_t g , uint8_t b, uint8_t) override;
 
-    void setPixel(int x, int y, uint32_t c);
-    void setBrightness(int val);
-    void fade();
+    virtual void setBrightness(uint8_t) override;
+    virtual void fade() override;
 
 private:
     unsigned int width, height, scale;
     SDL_Window *window;
     SDL_Surface *surface;
+
+    void setPixel(int x, int y, uint32_t c);
 };
 
 #endif /* SDLPIXELRENDERER_H_ */

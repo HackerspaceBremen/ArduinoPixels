@@ -9,58 +9,46 @@
 #ifndef PixelGameLocal_SpaceShip_h
 #define PixelGameLocal_SpaceShip_h
 #include "Sprite.h"
-#include "DataSpaceHead.h"
-#include "DataSpaceBottem.h"
-#include "DataSpaceArmL.h"
-#include "DataSpaceArmR.h"
+#include "Alien3.h"
+
 class SpaceShip:public Sprite
 {
+    float headTime;
+    Sprite head;
+    Sprite ship;
+    Sprite armL;
+    Sprite armR;
 
 public:
-    SpaceShip(){};
+    SpaceShip(){}
     void setup()
     {
-        
-        armL =new Sprite();
-        armL->currentData = new DataSpaceArmL();
-        addChild(armL);
-        
-        armR =new Sprite();
-        armR->currentData = new DataSpaceArmR();
-        addChild(armR);
-        
-        
-        head =new Sprite();
-        head->currentData =new DataSpaceHead();
-        //head->fy =-4;
-        head->fy =-2;
-        addChild(head);
-        
-              
-        
-        
-        
-        
-        ship= new Sprite();
-        ship->currentData =new DataSpaceBottem();
-        addChild(ship);
-        //ship->fy =3;
-        ship->fy =1;
+        armL.currentData = &dataArmL;
+        addChild(&armL);
+
+        armR.currentData = &dataArmR;
+        addChild(&armR);
+
+        head.currentData = &dataHead;
+        //head.fy =-4;
+        head.fy =-2;
+        addChild(&head);
+
+        ship.currentData = &dataBottom;
+        addChild(&ship);
+        //ship.fy =3;
+        ship.fy =1;
         headTime =6;
-        
-        
-       
-    
-    };
+    }
     void reset()
     {
         headTime =6;
-        ship->fy =0;
-        head->fy =-2;
-        armR->fx=0;
-          armL->fx=0;
-        armR->fy =head->fy-2;
-        armL->fy =head->fy-2;
+        ship.fy =0;
+        head.fy =-2;
+        armR.fx=0;
+          armL.fx=0;
+        armR.fy =head.fy-2;
+        armL.fy =head.fy-2;
     }
     void showHead()
     {
@@ -74,24 +62,24 @@ public:
         if(headTime>4.5)return;
         if(headTime<0.3)
         {
-            head->fy  =Sprite::backEaseOut(headTime,-2 , -2, 0.3);
-           ship->fy  =Sprite::backEaseOut(headTime,0 , 1, 0.3);
+            head.fy  =Sprite::backEaseOut(headTime,-2 , -2, 0.3);
+           ship.fy  =Sprite::backEaseOut(headTime,0 , 1, 0.3);
             
         
         }if(headTime>0.3)
         {
-            head->fy  =-4;//backEaseOut(headTime,-2 , -2, 0.5);
-            ship->fy  =2;//backEaseOut(headTime,1 , 2, 0.5);
+            head.fy  =-4;//backEaseOut(headTime,-2 , -2, 0.5);
+            ship.fy  =2;//backEaseOut(headTime,1 , 2, 0.5);
     
         }
-        armR->fy =head->fy-1;
-        armL->fy =head->fy-2;
+        armR.fy =head.fy-1;
+        armL.fy =head.fy-2;
         
         if(headTime>0.5 && headTime <1)
         {
             float armTime = headTime-0.5;
-          armR->fx   =cubicEaseOut( armTime,0 ,5, 0.5);
-             armL->fx   =cubicEaseOut( armTime,1 ,-5, 0.5);
+          armR.fx   =cubicEaseOut( armTime,0 ,5, 0.5);
+             armL.fx   =cubicEaseOut( armTime,1 ,-5, 0.5);
         
             
         }
@@ -102,23 +90,23 @@ public:
             
             if( armTimeInt%2==0)
             {
-                armR->drawType =1;
-                 armL->drawType =1;
-                armR->fx   = -4;
-                armL->fx =5;
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
+                armR.drawType =1;
+                 armL.drawType =1;
+                armR.fx   = -4;
+                armL.fx =5;
+                armR.fy =head.fy-1;
+                armL.fy =head.fy-2;
                 
             }else
             {
                 
-                armR->fx   = 5;
-                armL->fx = -4;
-                armR->drawType =0;
-                armL->drawType =0;
+                armR.fx   = 5;
+                armL.fx = -4;
+                armR.drawType =0;
+                armL.drawType =0;
              
-                armR->fy =head->fy-1;
-                armL->fy =head->fy-2;
+                armR.fy =head.fy-1;
+                armL.fy =head.fy-2;
 
             
             }
@@ -128,10 +116,10 @@ public:
         {
             float armTime = headTime-4;
 
-            armR->fx   =cubicEaseOut( armTime,5 ,-5,0.5);
-            armL->fx   =cubicEaseOut( armTime,-4 ,5, 0.5);
-            head->fy  =cubicEaseOut(armTime,-4 , 2.1, 0.5);
-            ship->fy  =cubicEaseOut(armTime ,2, -2,0.5);
+            armR.fx   =cubicEaseOut( armTime,5 ,-5,0.5);
+            armL.fx   =cubicEaseOut( armTime,-4 ,5, 0.5);
+            head.fy  =cubicEaseOut(armTime,-4 , 2.1, 0.5);
+            ship.fy  =cubicEaseOut(armTime ,2, -2,0.5);
 
             
         }
@@ -139,14 +127,7 @@ public:
         headTime+=timeElapsed;
         
        
-    };
-    float headTime;
-    Sprite *head;
-    Sprite *ship;
-    Sprite *armL;
-    Sprite *armR;
-
-
+    }
 };
 
 
